@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyme Disease — Know the Signs</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a;
+    --moss: #2d4a2d;
+    --sage: #5a7a4a;
+    --fern: #8aaa6a;
+    --cream: #f5f0e8;
+    --parchment: #ede5d0;
+    --rust: #c4622d;
+    --amber: #d4954a;
+    --warn: #e8c44a;
+    --danger: #c43a2d;
+    --text: #1a1a12;
+    --muted: #4a4a3a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    overflow-x: hidden;
+  }
+
+  /* ──────────────── HERO ──────────────── */
+  .hero {
+    min-height: 100vh;
+    background: var(--forest);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(90,122,74,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(196,98,45,0.1) 0%, transparent 60%);
+  }
+
+  /* Organic tick silhouette SVG background */
+  .hero-art {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 520px;
+    opacity: 0.07;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 8vw;
+    max-width: 720px;
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--fern);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--fern);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 900;
+    line-height: 0.92;
+    color: var(--cream);
+    margin-bottom: 32px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--fern);
+  }
+
+  .hero-sub {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.65);
+    max-width: 480px;
+    margin-bottom: 48px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--rust);
+    color: var(--cream);
+    padding: 16px 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, gap 0.2s;
+  }
+  .hero-cta:hover { background: var(--amber); gap: 20px; }
+  .hero-cta span { font-size: 1.1rem; }
+
+  .hero-stat-row {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .hero-stat {
+    padding: 28px 6vw;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .hero-stat:last-child { border-right: none; }
+
+  .hero-stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--fern);
+    display: block;
+  }
+
+  .hero-stat .label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.45);
+    margin-top: 4px;
+  }
+
+  /* ──────────────── NAV ──────────────── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--forest);
+    border-bottom: 1px solid rgba(138,170,106,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6vw;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cream);
+    padding: 18px 0;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 18px 20px;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--fern); }
+
+  /* ──────────────── SECTIONS ──────────────── */
+  section { padding: 100px 8vw; }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--sage);
+    max-width: 60px;
+    opacity: 0.4;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  /* ──────────────── WHAT IS ──────────────── */
+  #what {
+    background: var(--parchment);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  #what p {
+    font-family: 'Fraunces', serif;
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .tick-graphic {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tick-circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .tick-circle::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    border: 1px dashed rgba(90,122,74,0.35);
+  }
+
+  .tick-circle::after {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    border-radius: 50%;
+    border: 1px dashed rgba(90,122,74,0.15);
+  }
+
+  .tick-emoji {
+    font-size: 5rem;
+    filter: grayscale(0.3);
+  }
+
+  .bacteria-badge {
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background: var(--rust);
+    color: var(--cream);
+    padding: 10px 16px;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    max-width: 130px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ──────────────── STAGES ──────────────── */
+  #stages { background: var(--forest); }
+
+  #stages h2 { color: var(--cream); }
+  #stages .section-label { color: var(--fern); }
+  #stages .section-label::after { background: var(--fern); }
+
+  .stages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .stage-card {
+    background: var(--moss);
+    padding: 48px 36px;
+    position: relative;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .stage-card:hover { background: #354f35; }
+
+  .stage-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(138,170,106,0.18);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .stage-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .stage-time {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 24px;
+  }
+
+  .stage-symptoms {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stage-symptoms li {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: rgba(245,240,232,0.65);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .stage-symptoms li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--fern);
+    font-weight: 700;
+  }
+
+  .stage-severity {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 14px;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .sev-1 { background: var(--warn); color: var(--forest); }
+  .sev-2 { background: var(--rust); color: var(--cream); }
+  .sev-3 { background: var(--danger); color: var(--cream); }
+
+  /* ──────────────── PREVENTION ──────────────── */
+  #prevention { background: var(--cream); }
+
+  .prevention-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    margin-top: 60px;
+  }
+
+  .prev-card {
+    background: var(--parchment);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 28px;
+    align-items: start;
+    transition: transform 0.2s;
+  }
+  .prev-card:hover { transform: translateX(4px); }
+
+  .prev-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--forest);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .prev-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--forest);
+  }
+
+  .prev-card p {
+    font-family: 'Fraunces', serif;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* ──────────────── REMOVAL ──────────────── */
+  #removal { background: var(--moss); }
+
+  #removal h2 { color: var(--cream); }
+  #removal .section-label { color: var(--fern); }
+  #removal .section-label::after { background: var(--fern); }
+
+  .removal-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .step {
+    background: rgba(0,0,0,0.2);
+    padding: 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step::before {
+    content: attr(data-n);
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .step-icon { font-size: 2rem; margin-bottom: 20px; }
+
+  .step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .step p {
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: rgba(245,240,232,0.6);
+  }
+
+  .step-warn {
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: rgba(196,58,45,0.25);
+    border-left: 3px solid var(--danger);
+    font-size: 0.7rem;
+    color: rgba(245,240,232,0.75);
+    line-height: 1.5;
+  }
+
+  /* ──────────────── DIAGNOSIS ──────────────── */
+  #diagnosis { background: var(--cream); }
+
+  .dx-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: start;
+  }
+
+  .dx-panel {
+    background: var(--forest);
+    padding: 48px 40px;
+    color: var(--cream);
+  }
+
+  .dx-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(138,170,106,0.25);
+    color: var(--fern);
+  }
+
+  .dx-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+    align-items: start;
+  }
+
+  .dx-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--fern);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .dx-item strong {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--cream);
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .dx-item span {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.6;
+  }
+
+  .treatment-timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .treatment-timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--fern), var(--amber), var(--rust));
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: -28px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--cream);
+  }
+
+  .tl-dot.early { background: var(--fern); }
+  .tl-dot.mid   { background: var(--amber); }
+  .tl-dot.late  { background: var(--rust); }
+
+  .tl-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: var(--forest);
+  }
+
+  .tl-item p {
+    font-family: 'Fraunces', serif;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  /* ──────────────── PTLDS CALLOUT ──────────────── */
+  .ptlds-callout {
+    background: var(--danger);
+    color: var(--cream);
+    padding: 40px 48px;
+    margin-top: 40px;
+    display: flex;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .ptlds-callout .icon { font-size: 2rem; flex-shrink: 0; }
+  .ptlds-callout h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .ptlds-callout p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+
+  /* ──────────────── PENNSYLVANIA NOTE ──────────────── */
+  #pennsylvania {
+    background: var(--forest);
+    text-align: center;
+    padding: 80px 8vw;
+  }
+
+  #pennsylvania .big-stat {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+    color: var(--fern);
+    line-height: 0.9;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  #pennsylvania p {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    color: rgba(245,240,232,0.65);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ──────────────── FOOTER ──────────────── */
+  footer {
+    background: #0f1a0f;
+    padding: 60px 8vw 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: start;
+  }
+
+  footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+
+  footer p {
+    font-size: 0.75rem;
+    color: rgba(245,240,232,0.4);
+    line-height: 1.7;
+    max-width: 420px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: right;
+  }
+
+  .footer-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--fern); }
+
+  .footer-copy {
+    grid-column: 1 / -1;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.65rem;
+    color: rgba(245,240,232,0.22);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ──────────────── ANIMATIONS ──────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content > * {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .hero-tag       { animation-delay: 0.1s; }
+  .hero-content h1{ animation-delay: 0.25s; }
+  .hero-sub       { animation-delay: 0.4s; }
+  .hero-cta       { animation-delay: 0.55s; }
+
+  /* ──────────────── RESPONSIVE ──────────────── */
+  @media (max-width: 900px) {
+    #what { grid-template-columns: 1fr; }
+    .tick-graphic { display: none; }
+    .stages-grid { grid-template-columns: 1fr; }
+    .prevention-grid { grid-template-columns: 1fr; }
+    .removal-steps { grid-template-columns: repeat(2, 1fr); }
+    .dx-grid { grid-template-columns: 1fr; }
+    .hero-stat-row { grid-template-columns: 1fr; }
+    .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    nav { padding: 0 5vw; }
+    .nav-links { display: none; }
+    footer { grid-template-columns: 1fr; }
+    .footer-links { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Lyme Disease</a>
+  <ul class="nav-links">
+    <li><a href="#what">Overview</a></li>
+    <li><a href="#stages">Stages</a></li>
+    <li><a href="#prevention">Prevention</a></li>
+    <li><a href="#removal">Tick Removal</a></li>
+    <li><a href="#diagnosis">Diagnosis</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <svg class="hero-art" viewBox="0 0 400 400" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="200" cy="210" rx="90" ry="110" />
+    <ellipse cx="200" cy="165" rx="55" ry="65" />
+    <line x1="120" y1="250" x2="60" y2="200" stroke="white" stroke-width="14" stroke-linecap="round"/>
+    <line x1="115" y1="270" x2="50" y2="265" stroke="white" stroke-width="14" stroke-linecap="round"/>
+    <line x1="118" y1="290" x2="58" y2="320" stroke="white" stroke-width="14" stroke-linecap="round"/>
+    <line x1="280" y1="250" x2="340" y2="200" stroke="white" stroke-width="14" stroke-linecap="round"/>
+    <line x1="285" y1="270" x2="350" y2="265" stroke="white" stroke-width="14" stroke-linecap="round"/>
+    <line x1="282" y1="290" x2="342" y2="320" stroke="white" stroke-width="14" stroke-linecap="round"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tag">HOSA Health Education · Pennsylvania</div>
+    <h1>Know<br><em>Lyme</em><br>Disease</h1>
+    <p class="hero-sub">A community health guide for parents and families — covering detection, removal, symptoms, and early treatment of tick-borne Lyme disease.</p>
+    <a href="#what" class="hero-cta">Learn the Essentials <span>↓</span></a>
+  </div>
+
+  <div class="hero-stat-row">
+    <div class="hero-stat">
+      <span class="num">70–80%</span>
+      <span class="label">show bull's-eye rash</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">#1</span>
+      <span class="label">Pennsylvania leads the nation</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">3 days</span>
+      <span class="label">earliest symptom onset</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS LYME DISEASE -->
+<section id="what">
+  <div>
+    <div class="section-label">Overview</div>
+    <h2>What Is<br>Lyme Disease?</h2>
+    <p>Lyme disease is caused primarily by the <em>Borrelia burgdorferi</em> bacteria, transmitted to humans through the bite of the black-legged tick (deer tick). These ticks are tiny and often go unnoticed.</p>
+    <p>Lyme disease is most common in summer months — particularly in wooded or grassy areas — but transmission can occur at any time of year. Early detection is critical, as untreated cases can progress through three increasingly serious stages.</p>
+  </div>
+  <div class="tick-graphic">
+    <div class="tick-circle">
+      <div class="tick-emoji">🦟</div>
+      <div class="bacteria-badge"><em>Borrelia burgdorferi</em> bacteria</div>
+    </div>
+  </div>
+</section>
+
+<!-- STAGES -->
+<section id="stages">
+  <div class="section-label">Stages of Infection</div>
+  <h2>Three Stages<br>of Lyme Disease</h2>
+  <div class="stages-grid">
+
+    <div class="stage-card">
+      <div class="stage-severity sev-1">Early</div>
+      <div class="stage-num">01</div>
+      <div class="stage-title">Early Localized Disease</div>
+      <div class="stage-time">3 days – 1 month after bite</div>
+      <ul class="stage-symptoms">
+        <li>Bull's-eye rash (Erythema migrans) in 70–80% of patients</li>
+        <li>Fever and chills</li>
+        <li>Fatigue and headache</li>
+        <li>Muscle and joint pain</li>
+        <li>Swollen lymph nodes</li>
+      </ul>
+    </div>
+
+    <div class="stage-card">
+      <div class="stage-severity sev-2">Moderate</div>
+      <div class="stage-num">02</div>
+      <div class="stage-title">Early Disseminated Disease</div>
+      <div class="stage-time">3–10 weeks after bite</div>
+      <ul class="stage-symptoms">
+        <li>Multiple rashes spreading to other body areas</li>
+        <li>Bell's palsy — partial facial paralysis</li>
+        <li>Lyme carditis — irregular heart rhythm</li>
+        <li>Numbness or weakness in hands and feet</li>
+        <li>Eye pain and visual disturbances</li>
+        <li>Neuroborreliosis — brain/spinal cord inflammation</li>
+      </ul>
+    </div>
+
+    <div class="stage-card">
+      <div class="stage-severity sev-3">Severe</div>
+      <div class="stage-num">03</div>
+      <div class="stage-title">Late Disseminated Disease</div>
+      <div class="stage-time">2–12 months after bite</div>
+      <ul class="stage-symptoms">
+        <li>Severe arthritis, especially in knees</li>
+        <li>Acrodermatitis chronica atrophicans (skin condition)</li>
+        <li>Skin thinning and nail deformity</li>
+        <li>Peripheral neuropathy and nerve damage</li>
+        <li>Chronic cognitive impairment</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PREVENTION -->
+<section id="prevention">
+  <div class="section-label">How to Stay Safe</div>
+  <h2>Prevention<br>Strategies</h2>
+  <div class="prevention-grid">
+
+    <div class="prev-card">
+      <div class="prev-icon">🌲</div>
+      <div>
+        <h3>Avoid High-Risk Areas</h3>
+        <p>Ticks thrive in wooded areas, tall grass, and leaf litter. Walk in the center of trails and avoid brushing against vegetation when possible.</p>
+      </div>
+    </div>
+
+    <div class="prev-card">
+      <div class="prev-icon">🧴</div>
+      <div>
+        <h3>Use Insect Repellent</h3>
+        <p>Apply EPA-approved repellents containing DEET, picaridin, or IR3535 on exposed skin and clothing before going outdoors.</p>
+      </div>
+    </div>
+
+    <div class="prev-card">
+      <div class="prev-icon">👕</div>
+      <div>
+        <h3>Wear Protective Clothing</h3>
+        <p>Long sleeves and pants help keep ticks off your skin. Light-colored clothing makes ticks easier to spot. Tuck pants into socks when hiking.</p>
+      </div>
+    </div>
+
+    <div class="prev-card">
+      <div class="prev-icon">🔍</div>
+      <div>
+        <h3>Do Thorough Tick Checks</h3>
+        <p>After time outdoors, check your entire body carefully — including scalp, behind ears, armpits, groin, and behind the knees. Check children and pets too.</p>
+      </div>
+    </div>
+
+    <div class="prev-card">
+      <div class="prev-icon">🐕</div>
+      <div>
+        <h3>Check Your Pets Daily</h3>
+        <p>Pets carry ticks indoors. Check dogs and cats daily, especially after outdoor time, and use vet-recommended tick prevention products.</p>
+      </div>
+    </div>
+
+    <div class="prev-card">
+      <div class="prev-icon">👔</div>
+      <div>
+        <h3>Wash Exposed Clothes</h3>
+        <p>After outdoor activities in tick-prone areas, tumble-dry clothes on high heat for 10 minutes to kill any ticks before washing.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TICK REMOVAL -->
+<section id="removal">
+  <div class="section-label">If You Find a Tick</div>
+  <h2 style="color:var(--cream)">Proper Tick<br>Removal</h2>
+  <div class="removal-steps">
+
+    <div class="step" data-n="1">
+      <div class="step-icon">🥄</div>
+      <h3>Use Fine-Tipped Tweezers</h3>
+      <p>Grasp the tick as close to the skin's surface as possible. Do not use fingers — tweezers give you control and reduce the risk of squeezing the tick's body.</p>
+      <div class="step-warn">⚠ Never use petroleum jelly, nail polish, or heat to remove a tick.</div>
+    </div>
+
+    <div class="step" data-n="2">
+      <div class="step-icon">⬆️</div>
+      <h3>Pull Upward Steadily</h3>
+      <p>Apply even, upward pressure without twisting or jerking. Slow, steady tension prevents the mouthparts from breaking off and remaining in the skin.</p>
+      <div class="step-warn">⚠ Do not twist — this can cause mouthparts to break off.</div>
+    </div>
+
+    <div class="step" data-n="3">
+      <div class="step-icon">🧼</div>
+      <h3>Clean the Area</h3>
+      <p>After removal, thoroughly clean the bite area with rubbing alcohol, iodine scrub, or soap and water. Wash your hands as well.</p>
+    </div>
+
+    <div class="step" data-n="4">
+      <div class="step-icon">📋</div>
+      <h3>Monitor & Document</h3>
+      <p>Save the tick in a sealed bag for identification. Watch for symptoms — especially rash — over the next 30 days. Consult a doctor if any signs develop.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIAGNOSIS & TREATMENT -->
+<section id="diagnosis">
+  <div class="section-label">Medical Response</div>
+  <h2>Diagnosis<br>& Treatment</h2>
+
+  <div class="dx-grid">
+
+    <div class="dx-panel">
+      <h3>How Lyme Is Diagnosed</h3>
+
+      <div class="dx-item">
+        <div class="dx-dot"></div>
+        <div>
+          <strong>Clinical Evaluation</strong>
+          <span>Doctors look for the bull's-eye rash, known tick exposure, and symptom patterns consistent with Lyme disease.</span>
+        </div>
+      </div>
+
+      <div class="dx-item">
+        <div class="dx-dot"></div>
+        <div>
+          <strong>Blood Tests (ELISA)</strong>
+          <span>An enzyme-linked immunosorbent assay (ELISA) detects antibodies to Borrelia burgdorferi in the bloodstream.</span>
+        </div>
+      </div>
+
+      <div class="dx-item">
+        <div class="dx-dot"></div>
+        <div>
+          <strong>Western Blot Confirmation</strong>
+          <span>If the ELISA is positive, a Western blot test confirms the diagnosis by identifying specific antibody bands.</span>
+        </div>
+      </div>
+
+      <div class="dx-item">
+        <div class="dx-dot"></div>
+        <div>
+          <strong>Symptom Timeline</strong>
+          <span>The timing of symptom onset relative to potential tick exposure is critical for accurate diagnosis and staging.</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="treatment-timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot early"></div>
+          <h4>Early Treatment — Highly Effective</h4>
+          <p>Oral antibiotics such as doxycycline or amoxicillin for 10–14 days are highly effective when started early. Most patients recover fully.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot mid"></div>
+          <h4>Advanced Stages — Extended Antibiotics</h4>
+          <p>Later-stage Lyme may require longer courses or IV antibiotics (ceftriaxone) to address heart, neurological, and joint involvement.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot late"></div>
+          <h4>Supportive Care for Chronic Symptoms</h4>
+          <p>Physical therapy, anti-inflammatories, and supportive care help manage joint pain and fatigue in prolonged cases.</p>
+        </div>
+
+      </div>
+
+      <div class="ptlds-callout">
+        <div class="icon">⚠️</div>
+        <div>
+          <h4>Post-Treatment Lyme Disease Syndrome</h4>
+          <p>Some patients develop PTLDS — persistent fatigue, joint pain, and cognitive difficulties — even after successful antibiotic treatment. Most recover within a month; additional antibiotics provide little benefit for PTLDS.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PENNSYLVANIA STAT -->
+<section id="pennsylvania">
+  <span class="big-stat">#1</span>
+  <p>Pennsylvania consistently leads the nation in reported Lyme disease cases. If you live here, awareness and prevention aren't optional — they're essential.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <h3>Lyme Disease Awareness</h3>
+    <p>Produced by the HOSA Health Education team at Conestoga High School, Pennsylvania Chapter #18077. Content developed for parents and community members with information sourced from the CDC, Mayo Clinic, Cleveland Clinic, and Johns Hopkins Lyme Disease Research Center.</p>
+    <p style="margin-top:16px">This site is for educational purposes only. Always consult a healthcare professional for medical diagnosis and treatment.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.cdc.gov/lyme" target="_blank">CDC Lyme Disease</a>
+    <a href="https://www.mayoclinic.org/diseases-conditions/lyme-disease" target="_blank">Mayo Clinic</a>
+    <a href="https://www.hopkinslyme.org" target="_blank">Johns Hopkins Lyme Center</a>
+    <a href="https://my.clevelandclinic.org/health/diseases/11586-lyme-disease" target="_blank">Cleveland Clinic</a>
+    <a href="https://www.youtube.com/watch?v=S4Ny5YJh6Ws" target="_blank">Tick Removal Video</a>
+  </div>
+  <div class="footer-copy">© 2025 HOSA Pennsylvania · Conestoga High School · Educational Use Only</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Health & Depression — You Are Not Alone</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --midnight: #0d0f1a;
+  --navy: #141829;
+  --indigo: #1e2240;
+  --violet: #4a4580;
+  --lavender: #8b85c1;
+  --soft: #c4c0e8;
+  --cream: #f4f2fb;
+  --gold: #d4a843;
+  --rose: #c46878;
+  --mist: #e8e6f5;
+  --muted: #7a788a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); color:var(--midnight); font-family:'Outfit',sans-serif; overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:var(--midnight);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 6vw;
+}
+.nav-brand { font-family:'Libre Baskerville',serif; font-style:italic; font-size:1.1rem; color:var(--lavender); padding:18px 0; text-decoration:none; }
+.nav-links { display:flex; list-style:none; }
+.nav-links a { padding:18px 16px; font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(244,242,251,0.4); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--lavender); }
+.nav-crisis { padding:10px 20px; background:var(--rose); color:var(--cream); font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; margin-left:16px; }
+
+/* HERO */
+.hero {
+  min-height:100vh; background:var(--midnight);
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative; overflow:hidden;
+  padding:100px 8vw 160px;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 30%, rgba(74,69,128,0.25) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 70% at 20% 80%, rgba(196,104,120,0.1) 0%, transparent 60%);
+}
+.hero-content { max-width:680px; position:relative; z-index:2; }
+.hero-tag { font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--lavender); margin-bottom:28px; display:flex; align-items:center; gap:12px; }
+.hero-tag::before { content:''; width:28px; height:1px; background:var(--lavender); }
+h1 { font-family:'Libre Baskerville',serif; font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:400; line-height:1.08; color:var(--cream); margin-bottom:32px; }
+h1 em { font-style:italic; color:var(--lavender); }
+.hero-sub { font-size:1rem; line-height:1.8; color:rgba(244,242,251,0.55); max-width:500px; margin-bottom:48px; }
+.hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
+.btn-primary { padding:15px 36px; background:var(--violet); color:var(--cream); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s; }
+.btn-primary:hover { background:var(--lavender); }
+.btn-crisis { padding:15px 36px; background:var(--rose); color:var(--cream); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s; }
+.btn-crisis:hover { background:#b85868; }
+
+.hero-bottom {
+  position:absolute; bottom:0; left:0; right:0;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+.hb-stat { padding:24px 5vw; border-right:1px solid rgba(255,255,255,0.05); }
+.hb-stat:last-child { border-right:none; }
+.hb-stat .val { font-family:'Libre Baskerville',serif; font-size:2rem; font-weight:700; color:var(--lavender); }
+.hb-stat .lbl { font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(244,242,251,0.32); margin-top:4px; }
+
+/* CRISIS BANNER */
+.crisis-banner {
+  background:var(--rose); padding:20px 8vw;
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.crisis-banner p { font-size:0.88rem; color:var(--cream); line-height:1.5; }
+.crisis-banner strong { display:block; font-size:1.1rem; margin-bottom:4px; }
+.crisis-line { font-family:'Libre Baskerville',serif; font-size:1.8rem; font-weight:700; color:var(--cream); white-space:nowrap; }
+
+/* SECTIONS */
+section { padding:100px 8vw; }
+.sec-label { font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.sec-label::after { content:''; width:40px; height:1px; background:var(--violet); opacity:0.5; }
+h2 { font-family:'Libre Baskerville',serif; font-size:clamp(1.8rem,3.5vw,3.2rem); font-weight:400; line-height:1.15; margin-bottom:20px; }
+
+/* UNDERSTANDING */
+#understanding { background:var(--mist); }
+.und-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:start; margin-top:48px; }
+.und-text p { font-family:'Libre Baskerville',serif; font-size:1.1rem; line-height:1.8; color:var(--muted); margin-bottom:20px; }
+.myth-busters { display:flex; flex-direction:column; gap:2px; }
+.myth { background:var(--cream); padding:24px 28px; border-left:3px solid var(--violet); }
+.myth .myth-label { font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--rose); font-weight:600; margin-bottom:6px; }
+.myth .myth-text { font-size:0.82rem; line-height:1.65; color:var(--muted); }
+.myth .myth-truth { font-size:0.8rem; color:var(--midnight); margin-top:8px; font-weight:500; }
+
+/* TYPES */
+#types { background:var(--cream); }
+.types-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; }
+.type-card { background:var(--mist); padding:40px 32px; border-top:3px solid var(--violet); }
+.type-card .tc-icon { font-size:1.4rem; margin-bottom:20px; }
+.type-card h3 { font-family:'Libre Baskerville',serif; font-size:1.2rem; font-weight:400; margin-bottom:12px; }
+.type-card p { font-size:0.78rem; line-height:1.7; color:var(--muted); }
+.type-tag { display:inline-block; margin-top:16px; padding:4px 12px; background:var(--indigo); color:var(--soft); font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; }
+
+/* SYMPTOMS */
+#symptoms { background:var(--navy); }
+#symptoms h2 { color:var(--cream); }
+#symptoms .sec-label { color:var(--lavender); }
+#symptoms .sec-label::after { background:var(--lavender); }
+.sym-split { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:56px; }
+.sym-col-head { font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--lavender); padding:16px 28px; background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(255,255,255,0.06); }
+.sym-list { display:flex; flex-direction:column; }
+.sym-row { padding:20px 28px; border-bottom:1px solid rgba(255,255,255,0.04); display:flex; gap:16px; align-items:start; }
+.sym-dot { width:6px; height:6px; border-radius:50%; background:var(--lavender); flex-shrink:0; margin-top:6px; }
+.sym-row strong { display:block; font-size:0.82rem; color:var(--cream); margin-bottom:4px; }
+.sym-row span { font-size:0.74rem; line-height:1.55; color:rgba(244,242,251,0.45); }
+
+/* CAUSES */
+#causes { background:var(--cream); }
+.causes-row { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin-top:56px; }
+.cause-card { background:var(--mist); padding:36px 32px; display:grid; grid-template-columns:48px 1fr; gap:20px; align-items:start; }
+.cause-icon { width:48px; height:48px; background:var(--indigo); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.cause-card h3 { font-family:'Libre Baskerville',serif; font-size:1.1rem; font-weight:400; margin-bottom:8px; }
+.cause-card p { font-size:0.78rem; line-height:1.7; color:var(--muted); }
+
+/* TREATMENT */
+#treatment { background:var(--indigo); }
+#treatment h2 { color:var(--cream); }
+#treatment .sec-label { color:var(--lavender); }
+#treatment .sec-label::after { background:var(--lavender); }
+.tx-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:56px; }
+.tx-panel { background:rgba(255,255,255,0.04); padding:48px 36px; }
+.tx-panel h3 { font-family:'Libre Baskerville',serif; font-size:1.4rem; color:var(--soft); margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.08); }
+.tx-item { display:flex; gap:16px; margin-bottom:20px; align-items:start; }
+.tx-item-dot { width:8px; height:8px; border-radius:50%; background:var(--lavender); flex-shrink:0; margin-top:5px; }
+.tx-item strong { display:block; font-size:0.82rem; color:var(--cream); margin-bottom:4px; }
+.tx-item span { font-size:0.74rem; line-height:1.6; color:rgba(244,242,251,0.5); }
+
+/* SELF-CARE */
+#selfcare { background:var(--cream); }
+.sc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; }
+.sc-card { background:var(--mist); padding:36px 28px; text-align:center; transition:transform 0.2s; }
+.sc-card:hover { transform:translateY(-4px); }
+.sc-card .sc-icon { font-size:2rem; margin-bottom:20px; }
+.sc-card h3 { font-family:'Libre Baskerville',serif; font-size:1.1rem; font-weight:400; margin-bottom:12px; }
+.sc-card p { font-size:0.78rem; line-height:1.65; color:var(--muted); }
+
+/* HELP */
+#help { background:var(--midnight); text-align:center; padding:80px 8vw; }
+#help h2 { color:var(--cream); margin-bottom:16px; }
+#help p { font-size:1rem; color:rgba(244,242,251,0.55); max-width:500px; margin:0 auto 40px; line-height:1.7; }
+.help-resources { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; max-width:860px; margin:0 auto; }
+.help-res { background:rgba(255,255,255,0.04); padding:32px; text-align:left; }
+.help-res .hr-label { font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--lavender); margin-bottom:8px; }
+.help-res .hr-name { font-family:'Libre Baskerville',serif; font-size:1.1rem; color:var(--cream); margin-bottom:6px; }
+.help-res .hr-line { font-size:1.4rem; font-weight:600; color:var(--gold); margin-bottom:6px; }
+.help-res .hr-desc { font-size:0.72rem; line-height:1.55; color:rgba(244,242,251,0.4); }
+
+/* FOOTER */
+footer { background:#070810; padding:60px 8vw 40px; }
+.footer-inner { display:grid; grid-template-columns:1fr auto; gap:60px; }
+footer h3 { font-family:'Libre Baskerville',serif; font-size:1.3rem; color:var(--lavender); margin-bottom:12px; }
+footer p { font-size:0.75rem; line-height:1.7; color:rgba(244,242,251,0.3); max-width:420px; }
+.footer-links { display:flex; flex-direction:column; gap:10px; text-align:right; }
+.footer-links a { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(244,242,251,0.32); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:var(--lavender); }
+.footer-copy { margin-top:40px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.04); font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(244,242,251,0.18); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+.hero-content>*{opacity:0;animation:fadeUp 0.7s ease forwards;}
+.hero-tag{animation-delay:0.1s;}h1{animation-delay:0.25s;}.hero-sub{animation-delay:0.4s;}.hero-btns{animation-delay:0.55s;}
+
+@media(max-width:900px){
+  .hero-bottom{grid-template-columns:1fr 1fr;}
+  .und-grid,.sym-split,.tx-grid,.causes-row{grid-template-columns:1fr;}
+  .types-grid,.sc-grid,.help-resources{grid-template-columns:1fr 1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .footer-links{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">Mental Health</a>
+  <ul class="nav-links">
+    <li><a href="#understanding">Overview</a></li>
+    <li><a href="#types">Types</a></li>
+    <li><a href="#symptoms">Symptoms</a></li>
+    <li><a href="#treatment">Treatment</a></li>
+    <li><a href="#help">Get Help</a></li>
+  </ul>
+  <a href="tel:988" class="nav-crisis">Crisis Line: 988</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">CommonHealth · Mental Wellness</div>
+    <h1>You Are <em>Not</em><br>Alone in This</h1>
+    <p class="hero-sub">Depression is one of the most common — and most treatable — medical conditions in the world. Understanding it is the first step toward healing.</p>
+    <div class="hero-btns">
+      <a href="#understanding" class="btn-primary">Learn About Depression ↓</a>
+      <a href="#help" class="btn-crisis">Find Help Now</a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hb-stat"><div class="val">1 in 5</div><div class="lbl">Americans experience mental illness annually</div></div>
+    <div class="hb-stat"><div class="val">280M</div><div class="lbl">People worldwide affected by depression</div></div>
+    <div class="hb-stat"><div class="val">80%</div><div class="lbl">Respond to treatment</div></div>
+    <div class="hb-stat"><div class="val">60%</div><div class="lbl">Don't receive care they need</div></div>
+  </div>
+</section>
+
+<div class="crisis-banner">
+  <p><strong>If you or someone you know is in crisis:</strong>Call or text 988 · Suicide and Crisis Lifeline · Free, confidential, 24/7</p>
+  <div class="crisis-line">988</div>
+</div>
+
+<section id="understanding">
+  <div class="sec-label">What Is Depression</div>
+  <h2>More Than Sadness —<br>A Medical Condition</h2>
+  <div class="und-grid">
+    <div class="und-text">
+      <p>Depression (major depressive disorder) is a serious mood disorder that affects how a person feels, thinks, and handles daily activities. It's not a character flaw or a weakness — it's a medical condition with biological, psychological, and social roots.</p>
+      <p>The brain chemistry of someone with depression is measurably different. Changes in neurotransmitters like serotonin, norepinephrine, and dopamine affect mood, sleep, appetite, and energy — often making it genuinely impossible to "just feel better."</p>
+    </div>
+    <div class="myth-busters">
+      <div class="myth">
+        <div class="myth-label">Myth</div>
+        <div class="myth-text">"Depression is just sadness — push through it."</div>
+        <div class="myth-truth">→ Depression involves measurable brain chemistry changes. Willpower alone cannot fix a neurological imbalance.</div>
+      </div>
+      <div class="myth">
+        <div class="myth-label">Myth</div>
+        <div class="myth-text">"Strong people don't get depressed."</div>
+        <div class="myth-truth">→ Depression affects people of every background, profession, and temperament — including athletes, executives, and caregivers.</div>
+      </div>
+      <div class="myth">
+        <div class="myth-label">Myth</div>
+        <div class="myth-text">"Talking about it makes it worse."</div>
+        <div class="myth-truth">→ Research consistently shows that talking — with a therapist, friend, or counselor — is one of the most effective interventions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="types">
+  <div class="sec-label">Types of Depression</div>
+  <h2>Depression Takes Many Forms</h2>
+  <div class="types-grid">
+    <div class="type-card">
+      <div class="tc-icon">🌧️</div>
+      <h3>Major Depressive Disorder</h3>
+      <p>Persistent low mood, loss of interest, and related symptoms lasting at least two weeks that interfere with daily functioning. The most commonly diagnosed form.</p>
+      <span class="type-tag">Most common</span>
+    </div>
+    <div class="type-card">
+      <div class="tc-icon">📅</div>
+      <h3>Persistent Depressive Disorder</h3>
+      <p>A chronic, lower-grade depression (dysthymia) lasting two years or more. Often described as feeling like a "functional fog" — managing, but never truly well.</p>
+      <span class="type-tag">Long-lasting</span>
+    </div>
+    <div class="type-card">
+      <div class="tc-icon">🔄</div>
+      <h3>Bipolar Disorder</h3>
+      <p>Episodes of depression alternating with periods of elevated mood (mania or hypomania). Requires different treatment approaches than unipolar depression.</p>
+      <span class="type-tag">Mood episodes</span>
+    </div>
+    <div class="type-card">
+      <div class="tc-icon">🌸</div>
+      <h3>Seasonal Affective Disorder</h3>
+      <p>Depression that follows a seasonal pattern — most commonly in fall and winter when daylight decreases. Light therapy is a key treatment.</p>
+      <span class="type-tag">Seasonal</span>
+    </div>
+    <div class="type-card">
+      <div class="tc-icon">👶</div>
+      <h3>Postpartum Depression</h3>
+      <p>Affecting up to 1 in 5 new mothers, and also fathers. Far more serious than "baby blues" — requires medical attention and is highly treatable.</p>
+      <span class="type-tag">Perinatal</span>
+    </div>
+    <div class="type-card">
+      <div class="tc-icon">💊</div>
+      <h3>Treatment-Resistant Depression</h3>
+      <p>Depression that doesn't respond to two or more standard treatments. Newer options including ketamine, TMS, and ECT have shown strong outcomes.</p>
+      <span class="type-tag">Specialized care</span>
+    </div>
+  </div>
+</section>
+
+<section id="symptoms">
+  <div class="sec-label">Recognizing Depression</div>
+  <h2 style="color:var(--cream)">What Depression Looks Like</h2>
+  <div class="sym-split">
+    <div>
+      <div class="sym-col-head">Emotional Symptoms</div>
+      <div class="sym-list">
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Persistent sadness or emptiness</strong><span>Feelings of hopelessness or helplessness that don't lift with good news or pleasant events.</span></div></div>
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Loss of interest (anhedonia)</strong><span>No longer enjoying hobbies, relationships, or activities that once brought joy — one of depression's hallmarks.</span></div></div>
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Irritability or restlessness</strong><span>Especially in men and teens, depression often presents as agitation or short temper rather than sadness.</span></div></div>
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Feelings of worthlessness</strong><span>Excessive guilt or self-criticism disproportionate to any actual events or decisions.</span></div></div>
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Thoughts of death or suicide</strong><span>Recurrent thoughts about death, dying, or self-harm — always requires immediate professional attention.</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sym-col-head">Physical Symptoms</div>
+      <div class="sym-list">
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Fatigue and low energy</strong><span>Exhaustion that isn't relieved by rest — even small tasks can feel overwhelming and require significant effort.</span></div></div>
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Sleep disturbances</strong><span>Insomnia, early waking, or oversleeping. Sleep and depression have a bidirectional, reinforcing relationship.</span></div></div>
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Appetite changes</strong><span>Loss of appetite and weight loss, or increased appetite and weight gain — both are recognized symptoms.</span></div></div>
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Cognitive difficulties</strong><span>Trouble concentrating, making decisions, or remembering things — sometimes called "brain fog."</span></div></div>
+        <div class="sym-row"><div class="sym-dot"></div><div><strong>Unexplained physical pain</strong><span>Depression can manifest as headaches, back pain, or digestive issues with no clear physical cause.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="causes">
+  <div class="sec-label">Causes & Risk Factors</div>
+  <h2>Why Does Depression Develop?</h2>
+  <div class="causes-row">
+    <div class="cause-card">
+      <div class="cause-icon">🧬</div>
+      <div><h3>Biology & Genetics</h3><p>Depression runs in families. First-degree relatives of someone with depression have a 2–3x higher risk. Brain structure and neurochemistry play significant roles.</p></div>
+    </div>
+    <div class="cause-card">
+      <div class="cause-icon">⚗️</div>
+      <div><h3>Brain Chemistry</h3><p>Dysregulation of neurotransmitters — serotonin, dopamine, norepinephrine — is closely linked to depression. This is why medication targeting these systems can be effective.</p></div>
+    </div>
+    <div class="cause-card">
+      <div class="cause-icon">😔</div>
+      <div><h3>Trauma & Life Events</h3><p>Childhood adversity, loss, abuse, or major life stressors can trigger depression. Trauma literally changes brain structure, increasing long-term vulnerability.</p></div>
+    </div>
+    <div class="cause-card">
+      <div class="cause-icon">🏥</div>
+      <div><h3>Medical Conditions</h3><p>Thyroid disorders, chronic pain, heart disease, and neurological conditions are associated with significantly higher rates of depression.</p></div>
+    </div>
+    <div class="cause-card">
+      <div class="cause-icon">💊</div>
+      <div><h3>Medications & Substances</h3><p>Certain medications — beta-blockers, corticosteroids, some hormonal therapies — can trigger depressive symptoms. Alcohol and drug use are both causes and consequences.</p></div>
+    </div>
+    <div class="cause-card">
+      <div class="cause-icon">🌐</div>
+      <div><h3>Social & Environmental</h3><p>Isolation, economic stress, discrimination, and lack of social support are powerful contributors — especially compounded over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="treatment">
+  <div class="sec-label">Getting Better</div>
+  <h2 style="color:var(--cream)">Depression Is Highly Treatable</h2>
+  <div class="tx-grid">
+    <div class="tx-panel">
+      <h3>Therapy</h3>
+      <div class="tx-item"><div class="tx-item-dot"></div><div><strong>Cognitive Behavioral Therapy (CBT)</strong><span>The gold standard. Identifies and reframes negative thought patterns that fuel depression. Typically 12–20 sessions.</span></div></div>
+      <div class="tx-item"><div class="tx-item-dot"></div><div><strong>Interpersonal Therapy (IPT)</strong><span>Focuses on improving relationships and communication patterns — particularly effective for depression tied to grief or life transitions.</span></div></div>
+      <div class="tx-item"><div class="tx-item-dot"></div><div><strong>Behavioral Activation</strong><span>Gradually reintroduces rewarding activities to break the withdrawal cycle that perpetuates depression.</span></div></div>
+      <div class="tx-item"><div class="tx-item-dot"></div><div><strong>Psychodynamic Therapy</strong><span>Explores how past experiences and unconscious patterns shape current feelings and behaviors.</span></div></div>
+    </div>
+    <div class="tx-panel">
+      <h3>Medication</h3>
+      <div class="tx-item"><div class="tx-item-dot"></div><div><strong>SSRIs (First-Line)</strong><span>Selective serotonin reuptake inhibitors — fluoxetine, sertraline, escitalopram — are typically prescribed first. Take 4–6 weeks to take full effect.</span></div></div>
+      <div class="tx-item"><div class="tx-item-dot"></div><div><strong>SNRIs</strong><span>Target both serotonin and norepinephrine. Often preferred when pain or fatigue are prominent symptoms.</span></div></div>
+      <div class="tx-item"><div class="tx-item-dot"></div><div><strong>Other Antidepressants</strong><span>Bupropion, mirtazapine, and tricyclic antidepressants offer alternatives when first-line options don't work.</span></div></div>
+      <div class="tx-item"><div class="tx-item-dot"></div><div><strong>Emerging Options</strong><span>Ketamine/esketamine (Spravato) and TMS (transcranial magnetic stimulation) for treatment-resistant cases — often rapid-acting.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="selfcare">
+  <div class="sec-label">Day to Day</div>
+  <h2>Supporting Your Recovery</h2>
+  <div class="sc-grid">
+    <div class="sc-card"><div class="sc-icon">🏃</div><h3>Exercise</h3><p>Even 30 minutes of moderate exercise 3–5 days per week has antidepressant effects comparable to medication for mild-moderate depression.</p></div>
+    <div class="sc-card"><div class="sc-icon">😴</div><h3>Sleep Hygiene</h3><p>Consistent sleep schedules, limiting screens before bed, and creating a restful environment directly impact mood and recovery.</p></div>
+    <div class="sc-card"><div class="sc-icon">🤝</div><h3>Social Connection</h3><p>Isolation worsens depression. Even brief, low-effort connection — a text, a short walk with a friend — creates meaningful benefit.</p></div>
+    <div class="sc-card"><div class="sc-icon">🧘</div><h3>Mindfulness & Meditation</h3><p>Mindfulness-Based Cognitive Therapy (MBCT) reduces depression relapse by 43% in people with recurrent episodes.</p></div>
+    <div class="sc-card"><div class="sc-icon">🥗</div><h3>Nutrition</h3><p>The gut-brain connection is real. A diet rich in omega-3s, whole foods, and fermented foods supports brain health and mood regulation.</p></div>
+    <div class="sc-card"><div class="sc-icon">📓</div><h3>Journaling</h3><p>Expressive writing helps process emotions and identify thought patterns. Even 15 minutes a day can reduce depressive symptoms.</p></div>
+  </div>
+</section>
+
+<section id="help">
+  <div class="sec-label">Resources</div>
+  <h2 style="color:var(--cream)">Help Is Available Now</h2>
+  <p>Reaching out is a sign of strength, not weakness. These resources are free, confidential, and available 24/7.</p>
+  <div class="help-resources">
+    <div class="help-res">
+      <div class="hr-label">Crisis Support</div>
+      <div class="hr-name">988 Suicide & Crisis Lifeline</div>
+      <div class="hr-line">Call or Text 988</div>
+      <div class="hr-desc">Free, confidential crisis counseling 24 hours a day, 7 days a week</div>
+    </div>
+    <div class="help-res">
+      <div class="hr-label">Text Support</div>
+      <div class="hr-name">Crisis Text Line</div>
+      <div class="hr-line">Text HOME to 741741</div>
+      <div class="hr-desc">Free crisis counseling via text message — available around the clock</div>
+    </div>
+    <div class="help-res">
+      <div class="hr-label">Find a Therapist</div>
+      <div class="hr-name">SAMHSA Helpline</div>
+      <div class="hr-line">1-800-662-4357</div>
+      <div class="hr-desc">Free treatment referrals and information in English and Spanish</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h3>Mental Health Education</h3>
+      <p>A CommonHealth public awareness initiative. Information sourced from NIMH, SAMHSA, American Psychiatric Association, Mayo Clinic, and the World Health Organization.</p>
+      <p style="margin-top:12px">This page is for educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.nimh.nih.gov" target="_blank">NIMH</a>
+      <a href="https://www.samhsa.gov" target="_blank">SAMHSA</a>
+      <a href="https://www.psychiatry.org" target="_blank">Am. Psychiatric Assoc.</a>
+      <a href="https://988lifeline.org" target="_blank">988 Lifeline</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2025 CommonHealth · Educational Use Only · If you are in crisis, call 988</div>
+</footer>
+
+</body>
+</html>

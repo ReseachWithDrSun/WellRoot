@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Type 2 Diabetes — Understand. Prevent. Thrive.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sugar: #f5e6c8;
+  --amber: #e8a83e;
+  --terra: #c4622d;
+  --bark: #6b3a1f;
+  --deep: #1e1208;
+  --cream: #fdf7ee;
+  --sage: #7a9e7e;
+  --muted: #8a6a4a;
+  --warn: #e85d3e;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); color:var(--deep); font-family:'Syne',sans-serif; overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:var(--deep);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 6vw;
+}
+.nav-brand { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic; color:var(--amber); padding:18px 0; text-decoration:none; }
+.nav-links { display:flex; list-style:none; }
+.nav-links a { padding:18px 16px; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(253,247,238,0.45); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--amber); }
+
+/* HERO */
+.hero {
+  min-height:100vh; background:var(--deep);
+  display:grid; grid-template-columns:1fr 1fr;
+  position:relative; overflow:hidden;
+}
+.hero-left {
+  padding:100px 6vw 140px;
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative; z-index:2;
+}
+.hero-eyebrow {
+  font-size:0.68rem; letter-spacing:0.24em; text-transform:uppercase;
+  color:var(--amber); margin-bottom:28px;
+  display:flex; align-items:center; gap:12px;
+}
+.hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--amber); }
+h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,6vw,6rem);
+  font-weight:300; line-height:1.0;
+  color:var(--cream); margin-bottom:36px;
+}
+h1 strong { font-weight:700; color:var(--amber); display:block; }
+.hero-desc { font-size:0.85rem; line-height:1.85; color:rgba(253,247,238,0.55); max-width:400px; margin-bottom:48px; }
+.hero-btn {
+  display:inline-block; background:var(--terra); color:var(--cream);
+  padding:15px 36px; font-size:0.72rem; letter-spacing:0.14em;
+  text-transform:uppercase; text-decoration:none;
+  transition:background 0.2s; width:fit-content;
+}
+.hero-btn:hover { background:var(--amber); }
+
+.hero-right {
+  background:var(--bark);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.hero-right::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 80% at 60% 40%, rgba(232,168,62,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 30% 70%, rgba(196,98,45,0.2) 0%, transparent 60%);
+}
+.big-number {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(5rem,12vw,12rem);
+  font-weight:700; color:rgba(232,168,62,0.12);
+  line-height:0.9; text-align:center; position:relative; z-index:1;
+  letter-spacing:-0.04em;
+}
+.big-number span {
+  display:block; font-size:1.4rem; font-weight:400;
+  color:rgba(253,247,238,0.5); letter-spacing:0.06em;
+  font-family:'Syne',sans-serif; margin-top:16px;
+}
+
+.hero-stats {
+  position:absolute; bottom:0; left:0; right:0;
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.hero-stat { padding:26px 5vw; border-right:1px solid rgba(255,255,255,0.06); }
+.hero-stat:last-child { border-right:none; }
+.hero-stat .val { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:600; color:var(--amber); }
+.hero-stat .lbl { font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(253,247,238,0.38); margin-top:4px; }
+
+/* SECTIONS */
+section { padding:100px 8vw; }
+.sec-label { font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--terra); margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.sec-label::after { content:''; width:40px; height:1px; background:var(--terra); opacity:0.5; }
+h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:600; line-height:1.1; margin-bottom:20px; }
+
+/* WHAT IS */
+#what { background:var(--sugar); }
+.what-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.what-text p { font-size:1rem; line-height:1.8; color:var(--muted); margin-bottom:20px; font-family:'Cormorant Garamond',serif; font-size:1.2rem; }
+.insulin-box {
+  background:var(--deep); color:var(--cream);
+  padding:48px 40px; position:relative;
+}
+.insulin-box::before { content:''; position:absolute; top:16px; right:16px; width:60px; height:60px; border:1px solid rgba(232,168,62,0.25); border-radius:50%; }
+.insulin-box h3 { font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--amber); margin-bottom:20px; }
+.insulin-box p { font-size:0.82rem; line-height:1.75; color:rgba(253,247,238,0.6); }
+.type-compare { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:20px; }
+.type-card { background:rgba(255,255,255,0.05); padding:20px; }
+.type-card .tc-label { font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--amber); margin-bottom:8px; }
+.type-card p { font-size:0.75rem; line-height:1.6; color:rgba(253,247,238,0.55); }
+
+/* RISK */
+#risk { background:var(--cream); }
+.risk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; }
+.risk-card { background:var(--sugar); padding:40px 32px; border-top:3px solid transparent; transition:border-color 0.2s; }
+.risk-card:hover { border-color:var(--amber); }
+.risk-icon { font-size:1.8rem; margin-bottom:20px; }
+.risk-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:600; margin-bottom:12px; }
+.risk-card p { font-size:0.78rem; line-height:1.7; color:var(--muted); }
+.risk-pct { font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:700; color:var(--terra); margin-top:16px; }
+
+/* SYMPTOMS */
+#symptoms { background:var(--deep); }
+#symptoms h2 { color:var(--cream); }
+#symptoms .sec-label { color:var(--amber); }
+#symptoms .sec-label::after { background:var(--amber); }
+.sym-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:56px; }
+.sym-item {
+  background:rgba(255,255,255,0.04); padding:36px 28px;
+  border-bottom:2px solid transparent; transition:border-color 0.2s, background 0.2s;
+}
+.sym-item:hover { background:rgba(255,255,255,0.07); border-bottom-color:var(--amber); }
+.sym-num { font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:700; color:rgba(232,168,62,0.15); line-height:1; margin-bottom:12px; }
+.sym-item h3 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--cream); margin-bottom:8px; }
+.sym-item p { font-size:0.75rem; line-height:1.65; color:rgba(253,247,238,0.48); }
+
+/* PREVENTION */
+#prevention { background:var(--sugar); }
+.prev-split { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:56px; }
+.prev-col { display:flex; flex-direction:column; gap:3px; }
+.prev-item { background:var(--cream); padding:36px 32px; display:flex; gap:20px; align-items:start; transition:transform 0.2s; }
+.prev-item:hover { transform:translateX(6px); }
+.prev-item .pi-icon { font-size:1.5rem; flex-shrink:0; width:44px; height:44px; background:var(--deep); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.prev-item h3 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; margin-bottom:6px; }
+.prev-item p { font-size:0.78rem; line-height:1.65; color:var(--muted); }
+.prev-hero-stat { background:var(--terra); color:var(--cream); padding:36px 32px; display:flex; flex-direction:column; justify-content:flex-end; }
+.prev-hero-stat .big { font-family:'Cormorant Garamond',serif; font-size:5rem; font-weight:700; line-height:0.9; }
+.prev-hero-stat p { font-size:0.82rem; line-height:1.65; margin-top:16px; opacity:0.8; }
+
+/* TREATMENT */
+#treatment { background:var(--cream); }
+.tx-row { display:grid; grid-template-columns:1fr 2fr; gap:60px; margin-top:56px; align-items:start; }
+.tx-sidebar { background:var(--deep); padding:40px 32px; }
+.tx-sidebar h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--amber); margin-bottom:24px; }
+.tx-sidebar p { font-size:0.78rem; line-height:1.7; color:rgba(253,247,238,0.6); }
+.a1c-bar { margin-top:28px; }
+.a1c-label { font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(253,247,238,0.4); margin-bottom:8px; }
+.bar-track { height:8px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden; margin-bottom:8px; }
+.bar-fill { height:100%; border-radius:4px; }
+.bar-fill.normal { width:40%; background:var(--sage); }
+.bar-fill.prediab { width:65%; background:var(--amber); }
+.bar-fill.diab { width:90%; background:var(--warn); }
+.bar-val { font-size:0.7rem; color:rgba(253,247,238,0.5); }
+
+.tx-cards { display:flex; flex-direction:column; gap:3px; }
+.tx-card { background:var(--sugar); padding:32px; display:flex; gap:20px; align-items:start; }
+.tx-badge { width:36px; height:36px; border-radius:50%; background:var(--deep); color:var(--amber); display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; flex-shrink:0; }
+.tx-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; margin-bottom:6px; }
+.tx-card p { font-size:0.78rem; line-height:1.65; color:var(--muted); }
+
+/* FOOTER */
+footer { background:var(--deep); padding:60px 8vw 40px; }
+.footer-inner { display:grid; grid-template-columns:1fr auto; gap:60px; }
+footer h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--amber); margin-bottom:12px; }
+footer p { font-size:0.75rem; line-height:1.7; color:rgba(253,247,238,0.38); max-width:420px; }
+.footer-links { display:flex; flex-direction:column; gap:10px; text-align:right; }
+.footer-links a { font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(253,247,238,0.38); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:var(--amber); }
+.footer-copy { margin-top:40px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.06); font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(253,247,238,0.2); }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.hero-left > * { opacity:0; animation:fadeUp 0.6s ease forwards; }
+.hero-eyebrow { animation-delay:0.1s; }
+h1 { animation-delay:0.25s; }
+.hero-desc { animation-delay:0.4s; }
+.hero-btn { animation-delay:0.55s; }
+
+@media(max-width:900px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .hero-stats { grid-template-columns:1fr; }
+  .what-grid, .prev-split, .tx-row { grid-template-columns:1fr; }
+  .risk-grid, .sym-grid { grid-template-columns:1fr 1fr; }
+  .footer-inner { grid-template-columns:1fr; }
+  .footer-links { text-align:left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">Type 2 Diabetes</a>
+  <ul class="nav-links">
+    <li><a href="#what">Overview</a></li>
+    <li><a href="#risk">Risk Factors</a></li>
+    <li><a href="#symptoms">Symptoms</a></li>
+    <li><a href="#prevention">Prevention</a></li>
+    <li><a href="#treatment">Management</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">CommonHealth · Public Education</div>
+    <h1>The <strong>Silent</strong> Epidemic</h1>
+    <p class="hero-desc">Type 2 diabetes affects over 38 million Americans — yet up to 1 in 5 don't know they have it. The good news: it's largely preventable and manageable with the right knowledge.</p>
+    <a href="#what" class="hero-btn">Learn What to Watch For ↓</a>
+  </div>
+  <div class="hero-right">
+    <div class="big-number">38M<span>Americans living with diabetes</span></div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="val">96M</div><div class="lbl">Adults have prediabetes</div></div>
+    <div class="hero-stat"><div class="val">80%</div><div class="lbl">Don't know they have prediabetes</div></div>
+    <div class="hero-stat"><div class="val">58%</div><div class="lbl">Reduction in risk with lifestyle changes</div></div>
+  </div>
+</section>
+
+<section id="what">
+  <div class="what-grid">
+    <div class="what-text">
+      <div class="sec-label">What Is It</div>
+      <h2>When Your Body Stops Listening to Insulin</h2>
+      <p>Type 2 diabetes is a chronic condition where the body becomes resistant to insulin — the hormone that lets glucose enter your cells for energy. Over time, the pancreas can't keep up, and blood sugar stays dangerously high.</p>
+      <p>Unlike Type 1, which is autoimmune, Type 2 develops gradually and is strongly influenced by lifestyle factors — making early intervention extraordinarily powerful.</p>
+    </div>
+    <div class="insulin-box">
+      <h3>Type 1 vs. Type 2</h3>
+      <p>Both conditions involve blood sugar dysregulation, but the causes and approaches differ significantly.</p>
+      <div class="type-compare">
+        <div class="type-card">
+          <div class="tc-label">Type 1</div>
+          <p>Autoimmune — body destroys insulin-producing beta cells. Requires lifelong insulin therapy. Not preventable.</p>
+        </div>
+        <div class="type-card">
+          <div class="tc-label">Type 2</div>
+          <p>Insulin resistance — cells stop responding. Often preventable and sometimes reversible with lifestyle change.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="risk">
+  <div class="sec-label">Who's at Risk</div>
+  <h2>Risk Factors You Should Know</h2>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-icon">⚖️</div>
+      <h3>Excess Body Weight</h3>
+      <p>Being overweight — especially with abdominal fat — is the single strongest modifiable risk factor. Fat tissue makes cells more resistant to insulin.</p>
+      <div class="risk-pct">89%</div>
+      <p style="font-size:0.68rem;color:var(--muted);margin-top:4px">of people with Type 2 are overweight</p>
+    </div>
+    <div class="risk-card">
+      <div class="risk-icon">🏃</div>
+      <h3>Physical Inactivity</h3>
+      <p>Sedentary lifestyle reduces insulin sensitivity. Muscle activity is one of the most powerful ways to regulate blood glucose naturally.</p>
+    </div>
+    <div class="risk-card">
+      <div class="risk-icon">🧬</div>
+      <h3>Family History</h3>
+      <p>Having a parent or sibling with Type 2 diabetes significantly increases your risk — but genetics are not destiny with lifestyle intervention.</p>
+    </div>
+    <div class="risk-card">
+      <div class="risk-icon">🎂</div>
+      <h3>Age Over 45</h3>
+      <p>Risk increases with age, particularly after 45, as the pancreas becomes less efficient at producing insulin over time.</p>
+    </div>
+    <div class="risk-card">
+      <div class="risk-icon">🍬</div>
+      <h3>Prediabetes</h3>
+      <p>Blood sugar levels above normal but not yet diabetic. Without intervention, prediabetes often becomes Type 2 within 5 years.</p>
+    </div>
+    <div class="risk-card">
+      <div class="risk-icon">🤰</div>
+      <h3>Gestational Diabetes</h3>
+      <p>Women who developed diabetes during pregnancy have a significantly higher lifetime risk of developing Type 2 diabetes later.</p>
+    </div>
+  </div>
+</section>
+
+<section id="symptoms">
+  <div class="sec-label">Warning Signs</div>
+  <h2 style="color:var(--cream)">Symptoms Often Overlooked</h2>
+  <div class="sym-grid">
+    <div class="sym-item"><div class="sym-num">01</div><h3>Frequent Urination</h3><p>Kidneys work overtime to filter excess blood sugar, causing you to urinate more — especially at night.</p></div>
+    <div class="sym-item"><div class="sym-num">02</div><h3>Extreme Thirst</h3><p>Fluid loss from frequent urination leads to persistent, hard-to-quench thirst — a classic early warning sign.</p></div>
+    <div class="sym-item"><div class="sym-num">03</div><h3>Unexplained Fatigue</h3><p>When cells can't use glucose for energy, the body starves despite high blood sugar — causing deep, chronic fatigue.</p></div>
+    <div class="sym-item"><div class="sym-num">04</div><h3>Blurred Vision</h3><p>High blood sugar pulls fluid from the eye's lens, distorting its shape and blurring vision. Often one of the first noticed symptoms.</p></div>
+    <div class="sym-item"><div class="sym-num">05</div><h3>Slow Healing</h3><p>High glucose impairs circulation and immune response, causing cuts, bruises, and infections to heal unusually slowly.</p></div>
+    <div class="sym-item"><div class="sym-num">06</div><h3>Tingling or Numbness</h3><p>Nerve damage (neuropathy) from prolonged high blood sugar causes tingling or numbness, usually starting in the hands and feet.</p></div>
+    <div class="sym-item"><div class="sym-num">07</div><h3>Recurring Infections</h3><p>Yeast and bacterial infections — especially in the skin, gums, and urinary tract — become more frequent and harder to clear.</p></div>
+    <div class="sym-item"><div class="sym-num">08</div><h3>Darkened Skin Patches</h3><p>Acanthosis nigricans — dark, velvety patches in skin folds — can signal insulin resistance before blood sugar is fully elevated.</p></div>
+  </div>
+</section>
+
+<section id="prevention">
+  <div class="sec-label">Prevention</div>
+  <h2>You Have More Control Than You Think</h2>
+  <div class="prev-split">
+    <div class="prev-col">
+      <div class="prev-hero-stat">
+        <div class="big">58%</div>
+        <p>People at high risk who made modest lifestyle changes reduced their chance of developing Type 2 diabetes by 58% — outperforming medication alone.</p>
+      </div>
+      <div class="prev-item">
+        <div class="pi-icon">🥗</div>
+        <div>
+          <h3>Eat Whole Foods</h3>
+          <p>Focus on fiber-rich vegetables, whole grains, legumes, and lean proteins. Limit refined carbs and added sugars that spike blood glucose.</p>
+        </div>
+      </div>
+      <div class="prev-item">
+        <div class="pi-icon">💧</div>
+        <div>
+          <h3>Stay Hydrated</h3>
+          <p>Drinking water instead of sugary beverages is one of the simplest, highest-impact changes you can make immediately.</p>
+        </div>
+      </div>
+    </div>
+    <div class="prev-col">
+      <div class="prev-item">
+        <div class="pi-icon">🚶</div>
+        <div>
+          <h3>Move 150 Minutes a Week</h3>
+          <p>Moderate exercise — brisk walking, swimming, cycling — dramatically improves insulin sensitivity. Even short walks after meals help.</p>
+        </div>
+      </div>
+      <div class="prev-item">
+        <div class="pi-icon">⚖️</div>
+        <div>
+          <h3>Maintain a Healthy Weight</h3>
+          <p>Losing just 5–7% of body weight if overweight can significantly reduce diabetes risk — that's 10–14 lbs for a 200 lb person.</p>
+        </div>
+      </div>
+      <div class="prev-item">
+        <div class="pi-icon">😴</div>
+        <div>
+          <h3>Prioritize Sleep</h3>
+          <p>Poor sleep raises cortisol and disrupts insulin regulation. Aim for 7–9 hours per night — it's not optional for metabolic health.</p>
+        </div>
+      </div>
+      <div class="prev-item">
+        <div class="pi-icon">🩺</div>
+        <div>
+          <h3>Screen Regularly</h3>
+          <p>The ADA recommends blood sugar screening every 3 years starting at 35, or earlier if you have risk factors. Catching prediabetes early changes outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="treatment">
+  <div class="sec-label">Management</div>
+  <h2>Living Well With Diabetes</h2>
+  <div class="tx-row">
+    <div class="tx-sidebar">
+      <h3>Understanding A1C</h3>
+      <p>The A1C test measures your average blood sugar over 3 months. It's the key diagnostic and management tool for diabetes.</p>
+      <div class="a1c-bar">
+        <div class="a1c-label">Normal — below 5.7%</div>
+        <div class="bar-track"><div class="bar-fill normal"></div></div>
+        <div class="bar-val">Target for healthy adults</div>
+      </div>
+      <div class="a1c-bar">
+        <div class="a1c-label">Prediabetes — 5.7–6.4%</div>
+        <div class="bar-track"><div class="bar-fill prediab"></div></div>
+        <div class="bar-val">Time to act with lifestyle changes</div>
+      </div>
+      <div class="a1c-bar">
+        <div class="a1c-label">Diabetes — 6.5% or above</div>
+        <div class="bar-track"><div class="bar-fill diab"></div></div>
+        <div class="bar-val">Medical management required</div>
+      </div>
+    </div>
+    <div class="tx-cards">
+      <div class="tx-card">
+        <div class="tx-badge">Rx</div>
+        <div>
+          <h3>Medication</h3>
+          <p>Metformin is usually the first medication prescribed. As the disease progresses, additional medications or insulin may be added. Newer medications like GLP-1 agonists have shown remarkable results for blood sugar control and weight loss.</p>
+        </div>
+      </div>
+      <div class="tx-card">
+        <div class="tx-badge">📊</div>
+        <div>
+          <h3>Blood Sugar Monitoring</h3>
+          <p>Regular home monitoring with a glucometer or continuous glucose monitor (CGM) helps you understand how food, exercise, and stress affect your levels and make real-time adjustments.</p>
+        </div>
+      </div>
+      <div class="tx-card">
+        <div class="tx-badge">🍽</div>
+        <div>
+          <h3>Medical Nutrition Therapy</h3>
+          <p>Working with a registered dietitian to create a personalized eating plan is one of the most effective tools for managing blood sugar. Carbohydrate counting and the plate method are common frameworks.</p>
+        </div>
+      </div>
+      <div class="tx-card">
+        <div class="tx-badge">🧠</div>
+        <div>
+          <h3>Diabetes Self-Management Education</h3>
+          <p>DSMES programs teach practical skills — how to monitor, manage stress, navigate sick days, and prevent complications like neuropathy, retinopathy, and cardiovascular disease.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h3>Type 2 Diabetes Education</h3>
+      <p>A CommonHealth public awareness initiative. Information sourced from the American Diabetes Association, CDC Diabetes Prevention Program, Mayo Clinic, and NIH National Institute of Diabetes and Digestive and Kidney Diseases.</p>
+      <p style="margin-top:12px">This page is for educational purposes only. Consult your healthcare provider for medical advice.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.diabetes.org" target="_blank">American Diabetes Assoc.</a>
+      <a href="https://www.cdc.gov/diabetes" target="_blank">CDC Diabetes</a>
+      <a href="https://www.niddk.nih.gov" target="_blank">NIH NIDDK</a>
+      <a href="https://www.mayoclinic.org/diseases-conditions/type-2-diabetes" target="_blank">Mayo Clinic</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2025 CommonHealth · Educational Use Only</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart Disease — America's #1 Killer Is Preventable</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --charcoal: #1a1a1a;
+  --dark: #0f0f0f;
+  --iron: #2a2a2a;
+  --steel: #3d3d3d;
+  --smoke: #6a6a6a;
+  --paper: #f2ede8;
+  --white: #fafafa;
+  --red: #c41e1e;
+  --crimson: #8b0000;
+  --orange: #d45a1e;
+  --green: #2d7a3a;
+  --warn: #e8a030;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--white); color:var(--charcoal); font-family:'Source Sans 3',sans-serif; overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:var(--dark);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 6vw;
+  border-bottom:3px solid var(--red);
+}
+.nav-brand { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:0.1em; color:var(--white); padding:16px 0; text-decoration:none; }
+.nav-brand span { color:var(--red); }
+.nav-links { display:flex; list-style:none; }
+.nav-links a { padding:18px 16px; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(250,250,250,0.4); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--red); }
+
+/* HERO */
+.hero { min-height:100vh; background:var(--dark); position:relative; overflow:hidden; }
+.hero-inner { display:grid; grid-template-columns:1fr 1fr; min-height:100vh; }
+.hero-text {
+  padding:120px 6vw 160px;
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative; z-index:2;
+}
+.hero-eyebrow { font-size:0.65rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--red); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+.hero-eyebrow::before { content:''; width:24px; height:2px; background:var(--red); }
+h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,8vw,9rem); line-height:0.9; letter-spacing:0.02em; color:var(--white); margin-bottom:36px; }
+h1 span { color:var(--red); display:block; }
+.hero-desc { font-size:1rem; line-height:1.8; color:rgba(250,250,250,0.55); max-width:440px; margin-bottom:48px; font-family:'Lora',serif; }
+.hero-cta { display:inline-block; background:var(--red); color:var(--white); padding:16px 40px; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none; transition:background 0.2s; font-weight:600; }
+.hero-cta:hover { background:#a01818; }
+
+.hero-visual {
+  background:var(--iron); position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-visual::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 80% at 50% 50%, rgba(196,30,30,0.2) 0%, transparent 70%);
+}
+.hero-heart {
+  font-size:14rem; position:relative; z-index:1;
+  animation:heartbeat 1.4s ease-in-out infinite;
+  filter:drop-shadow(0 0 40px rgba(196,30,30,0.4));
+}
+@keyframes heartbeat {
+  0%,100%{transform:scale(1);}
+  14%{transform:scale(1.07);}
+  28%{transform:scale(1);}
+  42%{transform:scale(1.04);}
+  70%{transform:scale(1);}
+}
+
+.hero-stat-bar {
+  position:absolute; bottom:0; left:0; right:0;
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,0.06);
+  grid-column:1/-1;
+}
+.hs-item { padding:26px 5vw; border-right:1px solid rgba(255,255,255,0.06); }
+.hs-item:last-child { border-right:none; }
+.hs-item .val { font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:0.04em; color:var(--red); }
+.hs-item .lbl { font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(250,250,250,0.32); margin-top:2px; }
+
+/* SECTIONS */
+section { padding:100px 8vw; }
+.sec-label { font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+.sec-label::after { content:''; width:40px; height:1px; background:var(--red); opacity:0.5; }
+h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,5rem); letter-spacing:0.03em; line-height:0.9; margin-bottom:24px; }
+
+/* WHAT IS */
+#what { background:var(--paper); }
+.what-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:80px; align-items:start; }
+.what-text p { font-family:'Lora',serif; font-size:1.1rem; line-height:1.8; color:var(--smoke); margin-bottom:20px; }
+.types-stack { display:flex; flex-direction:column; gap:2px; }
+.type-item { background:var(--charcoal); color:var(--white); padding:24px 28px; border-left:4px solid var(--red); }
+.type-item h3 { font-size:0.88rem; font-weight:600; color:var(--white); margin-bottom:6px; letter-spacing:0.04em; }
+.type-item p { font-size:0.75rem; line-height:1.6; color:rgba(250,250,250,0.5); }
+
+/* RISK */
+#risk { background:var(--white); }
+.risk-intro { font-family:'Lora',serif; font-size:1.1rem; line-height:1.8; color:var(--smoke); max-width:600px; margin-bottom:56px; }
+.risk-cols { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+.risk-col-head { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; padding:16px 24px; }
+.risk-col-head.modifiable { background:var(--red); color:var(--white); }
+.risk-col-head.non-modifiable { background:var(--steel); color:var(--white); }
+.risk-items { display:flex; flex-direction:column; gap:2px; }
+.risk-item { background:var(--paper); padding:20px 24px; display:flex; gap:14px; align-items:start; }
+.ri-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+.ri-dot.mod { background:var(--red); }
+.ri-dot.nonmod { background:var(--steel); }
+.risk-item strong { display:block; font-size:0.82rem; margin-bottom:4px; font-weight:600; }
+.risk-item span { font-size:0.74rem; line-height:1.55; color:var(--smoke); }
+
+/* WARNING SIGNS */
+#warning { background:var(--charcoal); }
+#warning h2 { color:var(--white); }
+#warning .sec-label { color:var(--red); }
+#warning .sec-label::after { background:var(--red); }
+.warning-banner { background:var(--red); padding:20px 32px; margin:32px 0; display:flex; align-items:center; gap:20px; }
+.warning-banner .wb-icon { font-size:1.4rem; flex-shrink:0; }
+.warning-banner p { font-size:0.85rem; line-height:1.5; color:var(--white); font-weight:600; }
+.warning-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.warn-card { background:rgba(255,255,255,0.04); padding:36px 28px; border-top:3px solid transparent; transition:border-color 0.2s; }
+.warn-card:hover { border-top-color:var(--red); }
+.warn-card .wc-icon { font-size:1.6rem; margin-bottom:16px; }
+.warn-card h3 { font-size:1rem; font-weight:600; color:var(--white); margin-bottom:10px; }
+.warn-card p { font-size:0.76rem; line-height:1.65; color:rgba(250,250,250,0.48); }
+.warn-card .wc-note { margin-top:14px; padding:10px 14px; background:rgba(196,30,30,0.2); border-left:2px solid var(--red); font-size:0.7rem; color:rgba(250,250,250,0.65); line-height:1.5; }
+
+/* PREVENTION */
+#prevention { background:var(--paper); }
+.prev-callout { background:var(--charcoal); color:var(--white); padding:36px 48px; margin-bottom:56px; display:flex; gap:32px; align-items:center; }
+.prev-callout .pc-num { font-family:'Bebas Neue',sans-serif; font-size:5rem; color:var(--red); letter-spacing:0.04em; flex-shrink:0; line-height:1; }
+.prev-callout p { font-family:'Lora',serif; font-size:1.1rem; line-height:1.7; color:rgba(250,250,250,0.7); }
+.prev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.prev-card { background:var(--white); padding:36px 28px; border-bottom:3px solid transparent; transition:border-color 0.2s, transform 0.2s; }
+.prev-card:hover { border-bottom-color:var(--red); transform:translateY(-4px); }
+.prev-card .pc-icon { font-size:1.6rem; margin-bottom:20px; }
+.prev-card h3 { font-size:1rem; font-weight:600; margin-bottom:10px; }
+.prev-card p { font-size:0.78rem; line-height:1.7; color:var(--smoke); }
+
+/* NUMBERS */
+#numbers { background:var(--red); padding:80px 8vw; }
+.numbers-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+.num-item { padding:40px 28px; border-right:1px solid rgba(255,255,255,0.15); }
+.num-item:last-child { border-right:none; }
+.num-item .big { font-family:'Bebas Neue',sans-serif; font-size:4rem; color:var(--white); letter-spacing:0.04em; line-height:1; }
+.num-item p { font-size:0.72rem; line-height:1.6; color:rgba(255,255,255,0.65); margin-top:10px; }
+
+/* TREATMENT */
+#treatment { background:var(--white); }
+.tx-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; margin-top:56px; }
+.tx-card { background:var(--paper); padding:40px 36px; }
+.tx-card h3 { font-family:'Lora',serif; font-size:1.25rem; font-weight:700; margin-bottom:16px; padding-bottom:16px; border-bottom:2px solid var(--red); }
+.tx-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.tx-list li { font-size:0.8rem; line-height:1.65; color:var(--smoke); padding-left:16px; position:relative; }
+.tx-list li::before { content:'→'; position:absolute; left:0; color:var(--red); font-weight:700; }
+
+/* FOOTER */
+footer { background:var(--dark); padding:60px 8vw 40px; }
+.footer-inner { display:grid; grid-template-columns:1fr auto; gap:60px; }
+.footer-brand { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:0.1em; color:var(--white); margin-bottom:12px; }
+.footer-brand span { color:var(--red); }
+footer p { font-size:0.75rem; line-height:1.7; color:rgba(250,250,250,0.3); max-width:420px; }
+.footer-links { display:flex; flex-direction:column; gap:10px; text-align:right; }
+.footer-links a { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,250,250,0.32); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:var(--red); }
+.footer-copy { margin-top:40px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.06); font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(250,250,250,0.18); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+.hero-text>*{opacity:0;animation:fadeUp 0.6s ease forwards;}
+.hero-eyebrow{animation-delay:0.1s;}h1{animation-delay:0.25s;}.hero-desc{animation-delay:0.4s;}.hero-cta{animation-delay:0.55s;}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+  .hero-stat-bar{grid-template-columns:1fr 1fr;}
+  .what-grid,.risk-cols,.tx-grid{grid-template-columns:1fr;}
+  .warning-grid,.prev-grid{grid-template-columns:1fr 1fr;}
+  .numbers-grid{grid-template-columns:1fr 1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .footer-links{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">HEART<span>HEALTH</span></a>
+  <ul class="nav-links">
+    <li><a href="#what">Overview</a></li>
+    <li><a href="#risk">Risk Factors</a></li>
+    <li><a href="#warning">Warning Signs</a></li>
+    <li><a href="#prevention">Prevention</a></li>
+    <li><a href="#treatment">Treatment</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">CommonHealth · Cardiovascular Health</div>
+      <h1>America's<span>Number One</span>Killer</h1>
+      <p class="hero-desc">Heart disease claims a life every 33 seconds in the United States. It's the leading cause of death for men and women — yet up to 80% of cases are preventable.</p>
+      <a href="#what" class="hero-cta">Know Your Risk ↓</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-heart">❤️</div>
+    </div>
+  </div>
+  <div class="hero-stat-bar">
+    <div class="hs-item"><div class="val">695,000</div><div class="lbl">Americans die of heart disease each year</div></div>
+    <div class="hs-item"><div class="val">1 in 5</div><div class="lbl">Deaths in the US is heart disease</div></div>
+    <div class="hs-item"><div class="val">80%</div><div class="lbl">Of cases are preventable</div></div>
+  </div>
+</div>
+
+<section id="what">
+  <div class="what-grid">
+    <div class="what-text">
+      <div class="sec-label">What Is It</div>
+      <h2>Understanding Heart Disease</h2>
+      <p>Heart disease is an umbrella term for several conditions affecting the heart's structure and function. The most common form — coronary artery disease — occurs when plaque builds up in the arteries that supply blood to the heart muscle.</p>
+      <p>This buildup (atherosclerosis) narrows arteries, reducing blood flow. When a plaque ruptures, a blood clot forms — blocking blood flow entirely and causing a heart attack.</p>
+    </div>
+    <div class="types-stack">
+      <div class="type-item">
+        <h3>Coronary Artery Disease (CAD)</h3>
+        <p>Plaque narrows the arteries supplying the heart. Most common form. Leads to angina and heart attacks.</p>
+      </div>
+      <div class="type-item">
+        <h3>Heart Failure</h3>
+        <p>The heart can no longer pump blood effectively. Not a "stopped" heart — a heart working too hard with declining efficiency.</p>
+      </div>
+      <div class="type-item">
+        <h3>Arrhythmia</h3>
+        <p>Irregular heart rhythms — too fast, too slow, or erratic. Atrial fibrillation (AFib) is the most common, raising stroke risk 5x.</p>
+      </div>
+      <div class="type-item">
+        <h3>Valvular Heart Disease</h3>
+        <p>Damaged or diseased heart valves disrupt blood flow. Can be congenital or develop from infection, age, or rheumatic disease.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="risk">
+  <div class="sec-label">Risk Factors</div>
+  <h2>What Puts You at Risk</h2>
+  <p class="risk-intro">Heart disease risk comes from a combination of factors — some you can't control, many you can. Understanding both is essential.</p>
+  <div class="risk-cols">
+    <div>
+      <div class="risk-col-head modifiable">Modifiable Risk Factors</div>
+      <div class="risk-items">
+        <div class="risk-item"><div class="ri-dot mod"></div><div><strong>High Blood Pressure</strong><span>The "silent killer" — forces the heart to work harder, damaging artery walls over time. Target: below 120/80 mmHg.</span></div></div>
+        <div class="risk-item"><div class="ri-dot mod"></div><div><strong>High LDL Cholesterol</strong><span>LDL ("bad") cholesterol deposits plaque in arteries. Diet, statins, and lifestyle effectively lower it.</span></div></div>
+        <div class="risk-item"><div class="ri-dot mod"></div><div><strong>Smoking</strong><span>Damages blood vessels, reduces oxygen, and raises clotting risk. Quitting reduces risk by 50% within one year.</span></div></div>
+        <div class="risk-item"><div class="ri-dot mod"></div><div><strong>Type 2 Diabetes</strong><span>High blood sugar damages artery walls and accelerates plaque buildup — doubling heart disease risk.</span></div></div>
+        <div class="risk-item"><div class="ri-dot mod"></div><div><strong>Obesity</strong><span>Excess weight raises blood pressure, cholesterol, and inflammation — all major cardiovascular risk factors.</span></div></div>
+        <div class="risk-item"><div class="ri-dot mod"></div><div><strong>Physical Inactivity</strong><span>Sedentary lifestyle is as dangerous as smoking. Even modest regular activity dramatically reduces risk.</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="risk-col-head non-modifiable">Non-Modifiable Risk Factors</div>
+      <div class="risk-items">
+        <div class="risk-item"><div class="ri-dot nonmod"></div><div><strong>Age</strong><span>Risk increases with age — men over 45 and women over 55 face significantly higher risk. Menopause accelerates risk in women.</span></div></div>
+        <div class="risk-item"><div class="ri-dot nonmod"></div><div><strong>Family History</strong><span>Having a first-degree relative with heart disease before age 55 (men) or 65 (women) doubles your risk.</span></div></div>
+        <div class="risk-item"><div class="ri-dot nonmod"></div><div><strong>Sex</strong><span>Men develop heart disease earlier; women catch up after menopause. Women also present differently during heart attacks.</span></div></div>
+        <div class="risk-item"><div class="ri-dot nonmod"></div><div><strong>Race & Ethnicity</strong><span>African Americans have higher rates of high blood pressure. Hispanic Americans face unique risk profiles and barriers to care.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="warning">
+  <div class="sec-label">Know the Signs</div>
+  <h2 style="color:var(--white)">Warning Signs of a Heart Attack</h2>
+  <div class="warning-banner">
+    <div class="wb-icon">🚨</div>
+    <p>If you or someone else experiences these symptoms, call 911 immediately. Every minute without treatment, heart muscle dies. Do not drive yourself — call for emergency help.</p>
+  </div>
+  <div class="warning-grid">
+    <div class="warn-card">
+      <div class="wc-icon">💔</div>
+      <h3>Chest Pain or Pressure</h3>
+      <p>Tightness, squeezing, pressure, or pain in the center or left side of the chest lasting more than a few minutes, or coming and going.</p>
+      <div class="wc-note">Most common symptom — but not always present, especially in women.</div>
+    </div>
+    <div class="warn-card">
+      <div class="wc-icon">💪</div>
+      <h3>Pain Spreading to Arms</h3>
+      <p>Discomfort radiating to the left arm, shoulder, neck, jaw, back, or stomach. Often described as an aching or heaviness rather than sharp pain.</p>
+    </div>
+    <div class="warn-card">
+      <div class="wc-icon">😮‍💨</div>
+      <h3>Shortness of Breath</h3>
+      <p>Difficulty breathing, with or without chest pain. Can occur at rest or with minimal activity. May precede other symptoms by weeks.</p>
+      <div class="wc-note">Particularly common in women having a heart attack.</div>
+    </div>
+    <div class="warn-card">
+      <div class="wc-icon">🥵</div>
+      <h3>Cold Sweat, Nausea, Dizziness</h3>
+      <p>Sudden cold sweat, lightheadedness, nausea, or vomiting — especially with other symptoms — requires immediate emergency care.</p>
+    </div>
+    <div class="warn-card">
+      <div class="wc-icon">😴</div>
+      <h3>Unusual Fatigue</h3>
+      <p>Extreme tiredness, especially in women, for days or weeks before a heart attack. Sometimes the only warning sign present.</p>
+      <div class="wc-note">Women are more likely to have this as their primary or only symptom.</div>
+    </div>
+    <div class="warn-card">
+      <div class="wc-icon">⚡</div>
+      <h3>Sudden Cardiac Arrest Signs</h3>
+      <p>Sudden collapse, no pulse, no breathing — different from a heart attack. Requires immediate CPR and defibrillation. Call 911 at once.</p>
+      <div class="wc-note">CPR can double or triple survival chances — consider learning it.</div>
+    </div>
+  </div>
+</section>
+
+<section id="prevention">
+  <div class="sec-label">Prevention</div>
+  <h2>80% of Cases Are Preventable</h2>
+  <div class="prev-callout">
+    <div class="pc-num">80%</div>
+    <p>The American Heart Association estimates that 80% of cardiovascular disease cases — including heart disease and stroke — could be prevented through lifestyle changes. The choices you make every day determine your heart's future.</p>
+  </div>
+  <div class="prev-grid">
+    <div class="prev-card">
+      <div class="pc-icon">🥗</div>
+      <h3>Heart-Healthy Diet</h3>
+      <p>The Mediterranean and DASH diets reduce heart disease risk by 25–30%. Prioritize vegetables, whole grains, healthy fats (olive oil, nuts), and fatty fish. Limit sodium, added sugars, and saturated fats.</p>
+    </div>
+    <div class="prev-card">
+      <div class="pc-icon">🏃</div>
+      <h3>Regular Exercise</h3>
+      <p>150 minutes of moderate aerobic activity per week is the target. Exercise lowers blood pressure, raises HDL ("good") cholesterol, and maintains healthy weight. Even walking counts.</p>
+    </div>
+    <div class="prev-card">
+      <div class="pc-icon">🚭</div>
+      <h3>Don't Smoke</h3>
+      <p>Smoking is one of the most powerful risk factors for heart disease. Quitting at any age reduces risk dramatically — within one year, risk drops by half.</p>
+    </div>
+    <div class="prev-card">
+      <div class="pc-icon">⚖️</div>
+      <h3>Maintain Healthy Weight</h3>
+      <p>Obesity increases risk through multiple pathways simultaneously — blood pressure, cholesterol, diabetes risk, and inflammation. Even modest weight loss produces meaningful cardiovascular benefit.</p>
+    </div>
+    <div class="prev-card">
+      <div class="pc-icon">🧘</div>
+      <h3>Manage Stress</h3>
+      <p>Chronic stress raises cortisol, blood pressure, and inflammation. Evidence supports mindfulness, yoga, social connection, and regular sleep as effective stress-reduction tools.</p>
+    </div>
+    <div class="prev-card">
+      <div class="pc-icon">🩺</div>
+      <h3>Know Your Numbers</h3>
+      <p>Know your blood pressure, cholesterol, blood sugar, and BMI. Regular screening catches risk factors early — before they cause damage. Adults should screen at least every 4–6 years starting at 20.</p>
+    </div>
+  </div>
+</section>
+
+<div id="numbers">
+  <div class="numbers-grid">
+    <div class="num-item"><div class="big">120/80</div><p>Target blood pressure for most adults. Even slightly elevated pressure silently damages vessels.</p></div>
+    <div class="num-item"><div class="big">&lt;100</div><p>Target LDL cholesterol (mg/dL) for most people. Under 70 for those with existing heart disease.</p></div>
+    <div class="num-item"><div class="big">150 min</div><p>Weekly moderate exercise recommended by the American Heart Association to protect cardiovascular health.</p></div>
+    <div class="num-item"><div class="big">7–9 hrs</div><p>Optimal nightly sleep. Both too little and too much sleep are independently linked to heart disease risk.</p></div>
+  </div>
+</div>
+
+<section id="treatment">
+  <div class="sec-label">Treatment</div>
+  <h2>Managing Heart Disease</h2>
+  <div class="tx-grid">
+    <div class="tx-card">
+      <h3>Medications</h3>
+      <ul class="tx-list">
+        <li><strong>Statins</strong> — lower LDL cholesterol and reduce plaque inflammation. One of medicine's most proven interventions.</li>
+        <li><strong>Beta-blockers</strong> — slow heart rate, reduce blood pressure, protect against future heart attacks.</li>
+        <li><strong>ACE inhibitors / ARBs</strong> — lower blood pressure and protect kidney function, often used after heart attack or in heart failure.</li>
+        <li><strong>Antiplatelet therapy</strong> — aspirin and others prevent blood clots from forming on plaques. Often prescribed after cardiac events.</li>
+        <li><strong>Anticoagulants</strong> — "blood thinners" like warfarin or newer agents reduce clotting risk, especially in AFib patients.</li>
+      </ul>
+    </div>
+    <div class="tx-card">
+      <h3>Procedures & Surgery</h3>
+      <ul class="tx-list">
+        <li><strong>Angioplasty (PCI)</strong> — balloon inflated inside blocked artery to restore blood flow; a stent is placed to keep it open.</li>
+        <li><strong>Coronary Artery Bypass Grafting (CABG)</strong> — "bypass surgery" reroutes blood flow around blocked arteries using a healthy vessel from elsewhere in the body.</li>
+        <li><strong>Implantable devices</strong> — pacemakers regulate abnormal rhythms; ICDs deliver shocks to prevent sudden cardiac arrest.</li>
+        <li><strong>Valve repair or replacement</strong> — surgical or minimally invasive procedures restore proper valve function.</li>
+        <li><strong>Cardiac rehabilitation</strong> — supervised exercise, education, and counseling that reduces re-hospitalization and mortality after cardiac events.</li>
+      </ul>
+    </div>
+    <div class="tx-card">
+      <h3>Lifestyle as Medicine</h3>
+      <ul class="tx-list">
+        <li><strong>Therapeutic diet changes</strong> — targeted dietary modifications can lower LDL by 20–30% without medication.</li>
+        <li><strong>Supervised exercise programs</strong> — cardiac rehab exercise prescription is individualized and evidence-based.</li>
+        <li><strong>Smoking cessation programs</strong> — combination of counseling and pharmacotherapy (varenicline, NRT) achieves the best quit rates.</li>
+        <li><strong>Stress management</strong> — mindfulness-based stress reduction (MBSR) has demonstrated measurable cardiovascular benefits in clinical trials.</li>
+      </ul>
+    </div>
+    <div class="tx-card">
+      <h3>Monitoring & Follow-Up</h3>
+      <ul class="tx-list">
+        <li><strong>Home blood pressure monitoring</strong> — daily tracking gives a more accurate picture than single office readings.</li>
+        <li><strong>Wearable cardiac monitoring</strong> — patches and smartwatches can detect arrhythmias between clinic visits.</li>
+        <li><strong>Regular lipid panels</strong> — essential for tracking cholesterol response to treatment.</li>
+        <li><strong>Echocardiography</strong> — ultrasound imaging of heart structure and function to monitor disease progression.</li>
+        <li><strong>Stress testing</strong> — evaluates the heart's response to exertion and detects ischemia not apparent at rest.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">HEART<span>HEALTH</span></div>
+      <p>A CommonHealth public awareness initiative. Information sourced from the American Heart Association, CDC, Mayo Clinic, NIH National Heart, Lung, and Blood Institute, and Johns Hopkins Medicine.</p>
+      <p style="margin-top:12px">For educational purposes only. Not a substitute for professional medical advice. If you are experiencing symptoms of a heart attack, call 911 immediately.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.heart.org" target="_blank">American Heart Association</a>
+      <a href="https://www.cdc.gov/heartdisease" target="_blank">CDC Heart Disease</a>
+      <a href="https://www.nhlbi.nih.gov" target="_blank">NIH NHLBI</a>
+      <a href="https://www.mayoclinic.org/diseases-conditions/heart-disease" target="_blank">Mayo Clinic</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2025 CommonHealth · Educational Use Only · Emergency: Call 911</div>
+</footer>
+
+</body>
+</html>
