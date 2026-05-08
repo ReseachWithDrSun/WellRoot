@@ -64,9 +64,9 @@ nav {
 .nav-links a {
   display:block; padding:20px 18px;
   font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:rgba(245,240,232,0.45); text-decoration:none; transition:color 0.2s;
+  color:#2d5a27; text-decoration:none; transition:color 0.2s;
 }
-.nav-links a:hover { color:#2e7d32; }
+.nav-links a:hover { color:#1b5e20; }
 .nav-cta {
   margin-left:12px; padding:10px 22px !important;
   background:var(--fern) !important; color:#fff !important;
@@ -144,12 +144,13 @@ h1 em { font-style:italic; color:var(--fern); font-weight:300; }
 }
 .btn-main:hover { background:var(--leaf); transform:translateY(-2px); }
 .btn-ghost {
-  padding:16px 36px; border:1px solid rgba(138,170,106,0.35);
-  color:rgba(245,240,232,0.6); font-size:0.72rem; letter-spacing:0.14em;
-  text-transform:uppercase; text-decoration:none;
-  transition:border-color 0.2s, color 0.2s;
+  padding:16px 36px; border:2px solid #2e7d32;
+  color:#1b5e20; font-size:0.72rem; letter-spacing:0.14em;
+  text-transform:uppercase; text-decoration:none; font-weight:500;
+  background:rgba(255,255,255,0.7);
+  transition:border-color 0.2s, color 0.2s, background 0.2s;
 }
-.btn-ghost:hover { border-color:var(--fern); color:var(--fern); }
+.btn-ghost:hover { border-color:#1b5e20; color:#fff; background:#2e7d32; }
 
 /* Hero right — root illustration */
 .hero-visual {
@@ -188,7 +189,7 @@ h1 em { font-style:italic; color:var(--fern); font-weight:300; }
   display:grid; grid-template-columns:1fr 1.4fr; gap:100px; align-items:center;
 }
 .mission-label {
-  font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase;
+  font-size:0.82rem; letter-spacing:0.18em; text-transform:uppercase;
   color:var(--rust); margin-bottom:16px;
   display:flex; align-items:center; gap:10px;
 }
@@ -200,7 +201,7 @@ h2 {
 }
 .mission-text p {
   font-family:'Fraunces',serif;
-  font-size:1.1rem; line-height:1.85; color:#5a5040; margin-bottom:20px;
+  font-size:1.15rem; line-height:1.85; color:#5a5040; margin-bottom:20px;
 }
 .pillars { display:flex; flex-direction:column; gap:2px; }
 .pillar {
@@ -210,14 +211,14 @@ h2 {
 }
 .pillar:hover { background:var(--moss); }
 .pillar-icon { font-size:1.5rem; flex-shrink:0; }
-.pillar-text strong { display:block; font-size:0.88rem; letter-spacing:0.06em; margin-bottom:4px; color:var(--fern); }
-.pillar-text span { font-size:0.76rem; line-height:1.6; color:rgba(245,240,232,0.55); }
+.pillar-text strong { display:block; font-size:1rem; letter-spacing:0.04em; margin-bottom:4px; color:#a5d6a7; }
+.pillar-text span { font-size:0.92rem; line-height:1.65; color:rgba(245,240,232,0.9); }
 
 /* ── DISEASES ── */
 #diseases { background:#e8f5e9; padding:120px 8vw; }
 .diseases-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:64px; }
 .diseases-header h2 { color:#1b2e1b; }
-.diseases-header p { font-size:0.78rem; line-height:1.7; color:#4a6741; max-width:300px; text-align:right; }
+.diseases-header p { font-size:0.92rem; line-height:1.7; color:#4a6741; max-width:300px; text-align:right; }
 
 .disease-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:3px; }
 
@@ -231,58 +232,58 @@ h2 {
 }
 .d-card::before {
   content:''; position:absolute; inset:0;
-  background:rgba(0,0,0,0.35);
+  background:rgba(255,255,255,0.08);
   transition:background 0.3s; z-index:1;
 }
-.d-card:hover::before { background:rgba(0,0,0,0.15); }
+.d-card:hover::before { background:rgba(255,255,255,0.25); }
 .d-card:hover { transform:scale(1.01); }
 
 .d-card-bg { position:absolute; inset:0; z-index:0; }
 
-.d-lyme .d-card-bg { background:linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 60%, #3d5e3d 100%); }
-.d-diab .d-card-bg { background:linear-gradient(135deg, #1e1208 0%, #6b3a1f 60%, #c4622d 100%); }
-.d-mental .d-card-bg { background:linear-gradient(135deg, #0d0f1a 0%, #1e2240 60%, #4a4580 100%); }
-.d-heart .d-card-bg { background:linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 60%, #8b0000 100%); }
+.d-lyme .d-card-bg { background:linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 50%, #81c784 100%); }
+.d-diab .d-card-bg { background:linear-gradient(135deg, #ffe0b2 0%, #ffcc80 50%, #ffa726 100%); }
+.d-mental .d-card-bg { background:linear-gradient(135deg, #e8eaf6 0%, #c5cae9 50%, #9fa8da 100%); }
+.d-heart .d-card-bg { background:linear-gradient(135deg, #ffcdd2 0%, #ef9a9a 50%, #e57373 100%); }
 
 .d-card-content { position:relative; z-index:2; }
 .d-tag {
-  display:inline-block; padding:5px 14px;
-  font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase;
-  border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.6);
+  display:inline-block; padding:6px 16px;
+  font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase;
+  border:1px solid rgba(0,0,0,0.22); color:rgba(0,0,0,0.6);
   margin-bottom:28px;
 }
 .d-card h3 {
   font-family:'Fraunces',serif;
   font-size:clamp(1.8rem,3vw,2.8rem); font-weight:700;
-  color:#fff; line-height:1.05; margin-bottom:16px;
+  color:#1a1a1a; line-height:1.05; margin-bottom:16px;
 }
 .d-card h3 em { font-style:italic; font-weight:300; }
 .d-desc {
-  font-size:0.78rem; line-height:1.75;
-  color:rgba(255,255,255,0.6); max-width:340px;
+  font-size:0.92rem; line-height:1.8;
+  color:rgba(0,0,0,0.68); max-width:340px;
 }
 
 .d-card-footer {
   position:relative; z-index:2;
   display:flex; align-items:center; justify-content:space-between;
   margin-top:40px; padding-top:24px;
-  border-top:1px solid rgba(255,255,255,0.12);
+  border-top:1px solid rgba(0,0,0,0.12);
 }
-.d-stat { font-family:'Fraunces',serif; font-size:1.6rem; font-weight:700; color:#fff; }
-.d-stat-label { font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:2px; }
+.d-stat { font-family:'Fraunces',serif; font-size:1.6rem; font-weight:700; color:#1a1a1a; }
+.d-stat-label { font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(0,0,0,0.5); margin-top:2px; }
 .d-arrow {
-  width:44px; height:44px; border:1px solid rgba(255,255,255,0.25);
+  width:44px; height:44px; border:1px solid rgba(0,0,0,0.2);
   display:flex; align-items:center; justify-content:center;
-  font-size:1.1rem; color:rgba(255,255,255,0.6);
+  font-size:1.1rem; color:rgba(0,0,0,0.5);
   transition:background 0.2s, color 0.2s, border-color 0.2s;
 }
-.d-card:hover .d-arrow { background:rgba(255,255,255,0.15); color:#fff; border-color:rgba(255,255,255,0.5); }
+.d-card:hover .d-arrow { background:rgba(0,0,0,0.1); color:#1a1a1a; border-color:rgba(0,0,0,0.35); }
 
 /* accent top borders */
-.d-lyme  { border-top:4px solid var(--lyme-c); }
-.d-diab  { border-top:4px solid var(--diab-c); }
-.d-mental{ border-top:4px solid var(--mhd-c); }
-.d-heart { border-top:4px solid var(--heart-c); }
+.d-lyme  { border-top:5px solid #2e7d32; }
+.d-diab  { border-top:5px solid #e65100; }
+.d-mental{ border-top:5px solid #3949ab; }
+.d-heart { border-top:5px solid #c62828; }
 
 /* ── HOW WE HELP ── */
 #how { background:var(--cream); padding:120px 8vw; }
@@ -297,7 +298,7 @@ h2 {
   color:rgba(26,46,26,0.07); line-height:1; margin-bottom:16px;
 }
 .how-card h3 { font-family:'Fraunces',serif; font-size:1.3rem; font-weight:600; margin-bottom:14px; }
-.how-card p { font-size:0.8rem; line-height:1.8; color:#5a5040; }
+.how-card p { font-size:0.95rem; line-height:1.8; color:#5a5040; }
 
 /* ── IMPACT STRIP ── */
 .impact-strip {
@@ -310,24 +311,25 @@ h2 {
   font-family:'Fraunces',serif; font-size:3.5rem; font-weight:900;
   color:#fff; line-height:1; display:block;
 }
-.impact-item p { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(15,31,15,0.6); margin-top:8px; }
+.impact-item p { font-size:0.88rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(15,31,15,0.75); margin-top:8px; }
 
 /* ── GET INVOLVED ── */
 #involve { background:#e8eaf6; padding:120px 8vw; }
-.involve-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:64px; }
+.involve-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:64px; }
 .involve-card {
-  background:rgba(255,255,255,0.04); padding:48px 40px;
-  border:1px solid rgba(138,170,106,0.1);
-  transition:background 0.2s, border-color 0.2s;
+  background:#fff; padding:48px 40px;
+  border:3px solid #5c6bc0;
+  border-radius:4px;
+  transition:background 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
-.involve-card:hover { background:#f3f4fd; border-color:#9fa8da; }
+.involve-card:hover { background:#f3f4fd; border-color:#3949ab; box-shadow:0 4px 20px rgba(57,73,171,0.15); }
 .involve-card .ic-icon { font-size:2rem; margin-bottom:24px; }
 .involve-card h3 { font-family:'Fraunces',serif; font-size:1.4rem; color:#1a237e; margin-bottom:14px; }
-.involve-card p { font-size:0.8rem; line-height:1.8; color:#4a4a6a; margin-bottom:28px; }
+.involve-card p { font-size:1rem; line-height:1.8; color:#2a2a4a; margin-bottom:28px; }
 .involve-card a {
   display:inline-flex; align-items:center; gap:10px;
-  font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--fern); text-decoration:none; transition:gap 0.2s;
+  font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:#3949ab; font-weight:600; text-decoration:none; transition:gap 0.2s;
 }
 .involve-card a:hover { gap:16px; }
 
@@ -350,7 +352,7 @@ h2 {
   cursor:pointer; transition:background 0.2s;
 }
 .nl-form button:hover { background:var(--moss); }
-.nl-note { font-size:0.65rem; color:rgba(26,46,26,0.4); margin-top:14px; }
+.nl-note { font-size:0.82rem; color:rgba(26,46,26,0.55); margin-top:14px; }
 
 /* ── FOOTER ── */
 footer {
@@ -374,24 +376,24 @@ footer {
   color:#1b2e1b;
 }
 .footer-brand-col .fb-name em { font-style:italic; color:var(--fern); }
-.footer-brand-col p { font-size:0.75rem; line-height:1.8; color:#4a6741; max-width:260px; }
+.footer-brand-col p { font-size:0.92rem; line-height:1.8; color:#4a6741; max-width:260px; }
 
 .footer-col h4 {
-  font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
+  font-size:0.82rem; letter-spacing:0.14em; text-transform:uppercase;
   color:#2e7d32; margin-bottom:20px;
 }
 .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
 .footer-col ul li a {
-  font-size:0.75rem; color:#4a6741; text-decoration:none; transition:color 0.2s;
+  font-size:0.92rem; color:#4a6741; text-decoration:none; transition:color 0.2s;
 }
 .footer-col ul li a:hover { color:var(--fern); }
 
 .footer-bottom {
   display:flex; align-items:center; justify-content:space-between;
 }
-.footer-copy { font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:#558b2f; }
+.footer-copy { font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:#558b2f; }
 .footer-legal { display:flex; gap:24px; }
-.footer-legal a { font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:#558b2f; text-decoration:none; transition:color 0.2s; }
+.footer-legal a { font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:#558b2f; text-decoration:none; transition:color 0.2s; }
 .footer-legal a:hover { color:#2e7d32; }
 
 /* ── SCROLL REVEAL ── */
@@ -559,7 +561,7 @@ footer {
   <div class="diseases-header reveal">
     <div>
       <div class="mission-label" style="color:var(--fern);">Health Topics</div>
-      <h2 style="color:var(--cream)">Four Diseases.<br>One Mission.</h2>
+      <h2 style="color:#111111">Four Diseases.<br>One Mission.</h2>
     </div>
     <p>Each guide is a deep-dive educational resource built for families, students, and community members — covering causes, symptoms, prevention, and treatment.</p>
   </div>
@@ -686,26 +688,26 @@ footer {
 <section id="involve">
   <div class="reveal">
     <div class="mission-label" style="color:var(--fern);">Get Involved</div>
-    <h2 style="color:var(--cream)">Join the<br>WellRoot Community</h2>
+    <h2 style="color:#111111">Join the<br>WellRoot Community</h2>
   </div>
   <div class="involve-grid">
     <div class="involve-card reveal">
       <div class="ic-icon">🏫</div>
       <h3>Bring WellRoot to Your School</h3>
       <p>We work with HOSA chapters, health teachers, and school nurses to deliver age-appropriate prevention education directly to students and parents.</p>
-      <a href="mailto:education@wellroot.org">Request a Program →</a>
+      <a href="mailto:WellRootForAll@gmail.com">Request a Program →</a>
     </div>
     <div class="involve-card reveal">
       <div class="ic-icon">🩺</div>
       <h3>Partner With Us as a Provider</h3>
       <p>Healthcare providers and clinics can partner with WellRoot to co-host screenings, distribute materials, and amplify prevention messaging in your patient community.</p>
-      <a href="mailto:partners@wellroot.org">Become a Partner →</a>
+      <a href="mailto:WellRootForAll@gmail.com">Become a Partner →</a>
     </div>
     <div class="involve-card reveal">
       <div class="ic-icon">📢</div>
       <h3>Volunteer as a Health Educator</h3>
       <p>Medical students, nurses, and community health workers can apply to join our volunteer educator network and lead community workshops across Pennsylvania.</p>
-      <a href="mailto:volunteer@wellroot.org">Apply to Volunteer →</a>
+      <a href="mailto:WellRootForAll@gmail.com">Apply to Volunteer →</a>
     </div>
     <div class="involve-card reveal">
       <div class="ic-icon">💚</div>
@@ -723,10 +725,10 @@ footer {
     <h2>Prevention Starts<br>With Knowledge</h2>
     <p>Get monthly health education updates, prevention tips, and community event announcements delivered to your inbox — free, always.</p>
     <div class="nl-form">
-      <input type="email" placeholder="your@email.com" aria-label="Email address">
-      <button type="button">Subscribe</button>
+      <input type="email" id="nl-email" placeholder="your@email.com" aria-label="Email address">
+      <button type="button" id="nl-btn">Subscribe</button>
     </div>
-    <p class="nl-note">No spam. No advertising. Unsubscribe at any time.</p>
+    <p class="nl-note">Send your subscription request to <a href="mailto:WellRootForAll@gmail.com" style="color:var(--moss);text-decoration:underline;">WellRootForAll@gmail.com</a> · No spam · Unsubscribe anytime.</p>
   </div>
 </section>
 
@@ -787,17 +789,22 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Newsletter button
-document.querySelector('.nl-form button').addEventListener('click', function() {
-  const input = document.querySelector('.nl-form input');
+document.getElementById('nl-btn').addEventListener('click', function() {
+  const input = document.getElementById('nl-email');
   if(input.value && input.value.includes('@')) {
+    const userEmail = input.value.trim();
+    const subject = encodeURIComponent('WellRoot Newsletter Subscription');
+    const body = encodeURIComponent('Hi WellRoot,\n\nPlease add me to the WellRoot newsletter.\n\nMy email: ' + userEmail + '\n\nThank you!');
+    window.location.href = 'mailto:WellRootForAll@gmail.com?subject=' + subject + '&body=' + body;
     input.value = '';
-    this.textContent = '✓ Subscribed!';
+    this.textContent = '✓ Opening email...';
     this.style.background = 'var(--fern)';
-    this.style.color = 'var(--root)';
+    this.style.color = '#fff';
     setTimeout(() => { this.textContent = 'Subscribe'; this.style.background = ''; this.style.color = ''; }, 3000);
   } else {
     input.style.borderColor = 'var(--rust)';
-    setTimeout(() => { input.style.borderColor = ''; }, 2000);
+    input.placeholder = 'Please enter a valid email';
+    setTimeout(() => { input.style.borderColor = ''; input.placeholder = 'your@email.com'; }, 2500);
   }
 });
 </script>
